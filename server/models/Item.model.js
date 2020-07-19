@@ -12,7 +12,8 @@ const itemSchema = new Schema({
     },
     category: {
         type: String,
-        default: "other"
+        enum: ['books', 'clothes', 'electronics', 'accessories', 'other'],
+        default: 'other'
     },
     location: {
         type: String,
