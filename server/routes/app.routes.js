@@ -4,7 +4,7 @@ const router = express.Router()
 const Item = require('./../models/Item.model')
 
 // Get all items on main page
-router.get('/', (req, res, next) => {
+router.get('/all', (req, res, next) => {
 
     Item.find()
         .then(response => res.json(response))
