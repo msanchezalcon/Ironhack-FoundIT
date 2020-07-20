@@ -3,22 +3,35 @@
 
 ## ENDPOINTS SUMMARY
 
-AUTH & PROFILE ROUTES:
+Auth & Profile routes:
 
-| Method   | #GET    | #POST   | #GET   | #POST  | #GET           | #POST          |#GET                    |
-| -------- | ------- | ------- | ------ | ------ | -------------- | -------------- |----------------------- |
-| Endpoint | /signup | /signup | /login | /login | /users/:userId | /users/:userId |/users/:userId/items    |
-| Action   | Sign up | Sign up | Log in | Log in | See user       | Edit user      |See found items         |
-
-APP ROUTES:
-
-| Method   | #GET         | #POST         |
-| -------- | ------------ | ------------- |
-| Endpoint | /main        | /main/new     |
-| Action   | Find objects | Add item      |
+|Id | Method  |  Path                     | Description                                      | Querys         |
+|---|:-------:|:-------------------------:|:------------------------------------------------:|---------------:|
+| 1 |post     |/api/signup                | Registers new user                               |                |
+| 2 |get      |/api/signup                | Shows signup form                                |                |
+| 3 |get      |/api/login                 | Shows login form                                 |                |
+| 4 |post     |/api/login                 | Logs user in                                     |                |
+| 5 |get      |/api/users/:userId         | Shows user info                                  |                |
+| 6 |post     |/api/users/:userId         | Edits user info                                  |                |
+| 7 |get      |/api/users/:userId/items   | Shows user items                                 |                |
 
 
-## Dependencies
+App routes:
+
+|Id | Method  |  Path                     | Description                                      | Querys         |
+|---|:-------:|:-------------------------:|:------------------------------------------------:|---------------:|
+| 1 |get      |/api/main/all              | Shows all items                                  |                |
+| 2 |get      |/api/main/:item_id         | Shows item details                               |                |
+| 3 |get      |/api/main/:item_id/edit    | Shows edit form for item                         |                |
+| 4 |post     |/api/main/:item_id/edit'   | Edits item                                       |                |
+| 5 |post     |/api/main/new              | Adds new item                                    |                |
+| 6 |get      |/api/main/:item_id/delete  | Deletes item                                     |                |
+
+
+
+
+
+## Install dependencies on both server and client folders
 ```bash
 npm i
 ```
