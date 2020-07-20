@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+const userSchema = new Schema({ //añadir nombre e email perfil
     username: {
         type: String,
         required: true,
@@ -17,7 +17,12 @@ const userSchema = new Schema({
         type: String,
         default: ""
     },
-    found_items: [{ type: Schema.Types.ObjectId, ref: "Item" }]
+    role: {
+        type: String,
+        enum: ['USER', 'ADMIN'],
+        default: 'USER'
+    },
+    foundItems: [{ type: Schema.Types.ObjectId, ref: "Item" }]
 }, {
     timestamps: true
 })
@@ -25,3 +30,5 @@ const userSchema = new Schema({
 const User = mongoose.model("User", userSchema)
 
 module.exports = User
+
+// Dudas acerca de vincular item a persona o no

@@ -21,9 +21,12 @@ const itemSchema = new Schema({
     },
     imageUrl: {
         type: String,
-        default: ""
+        default: "" //img por defecto por categoría
     },
-    foundBy: String
+    foundBy: {
+        type: String,
+        required: true
+    } //username
 }, {
     timestamps: true
 })
@@ -32,3 +35,4 @@ itemSchema.index({ location: '2dsphere' })
 
 const Item = mongoose.model('Item', itemSchema)
 module.exports = Item
+

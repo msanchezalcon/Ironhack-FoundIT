@@ -5,17 +5,17 @@
 
 AUTH & PROFILE ROUTES:
 
-| Method   | #GET    | #POST   | #GET   | #POST  | #GET           | #POST          |
-| -------- | ------- | ------- | ------ | ------ | -------------- | -------------- |
-| Endpoint | /signup | /signup | /login | /login | /users/:userId | /users/:userId |
-| Action   | Sign up | Sign up | Log in | Log in | See user       | Edit user      |
+| Method   | #GET    | #POST   | #GET   | #POST  | #GET           | #POST          |#GET                    |
+| -------- | ------- | ------- | ------ | ------ | -------------- | -------------- |----------------------- |
+| Endpoint | /signup | /signup | /login | /login | /users/:userId | /users/:userId |/users/:userId/items    |
+| Action   | Sign up | Sign up | Log in | Log in | See user       | Edit user      |See found items         |
 
 APP ROUTES:
 
-| Method   | #GET         | #POST         | #GET            |
-| -------- | ------------ | ------------- | --------------- |
-| Endpoint | /main        | /main/new     | /main/errands   |
-| Action   | Find objects | Add item      | See found items |
+| Method   | #GET         | #POST         |
+| -------- | ------------ | ------------- |
+| Endpoint | /main        | /main/new     |
+| Action   | Find objects | Add item      |
 
 
 ## Dependencies
