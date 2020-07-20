@@ -29,7 +29,12 @@ router.get('/:item_id/edit', (req, res, next) => {
 
 router.post('/:item_id/edit', (req, res, next) => {
 
-    Item.findByIdAndUpdate(req.body)
+    const { name, description, category, location, imageUrl, foundBy } = req.body
+    // no funciona
+    // const category2 = req.body.category
+    // const tempCategory = category2 || req.user.category
+
+    Item.findByIdAndUpdate(req.params.item_id, { name, description, category, location, imageUrl, foundBy })
         .then(response => res.json(response))
         .catch(err => next(err))
 })

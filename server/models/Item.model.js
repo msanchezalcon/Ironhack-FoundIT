@@ -23,10 +23,10 @@ const itemSchema = new Schema({
         type: String,
         default: "" //img por defecto por categoría
     },
-    foundBy: {
+    foundBy: { //username
         type: String,
         required: true
-    } //username
+    }
 }, {
     timestamps: true
 })
