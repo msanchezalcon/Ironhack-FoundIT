@@ -4,14 +4,12 @@ const Schema = mongoose.Schema
 const userSchema = new Schema({ //añadir nombre e email perfil
     username: {
         type: String,
-        required: true,
-        minlength: 5,
-        maxlength: 10
+        required: true
     },
     password: {
         type: String,
         required: true,
-        minlength: 1
+        minlength: 2
     },
     avatar: {
         type: String,

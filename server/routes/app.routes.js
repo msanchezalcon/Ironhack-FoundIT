@@ -3,6 +3,12 @@ const router = express.Router()
 
 const Item = require('./../models/Item.model')
 
+// Homepage FRONT?
+// router.get('/home', (req, res, next) => {
+
+//    
+// })
+
 // Get all items on main page
 router.get('/all', (req, res, next) => {
 
