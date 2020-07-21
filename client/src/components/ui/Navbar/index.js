@@ -29,13 +29,13 @@ class Navigation extends Component {
         return (
             <Navbar bg="light" variant="light" expand="lg" sticky="top" className="details">
                 <Navbar.Brand>
-                    <Link to="/home">Found_IT</Link>
+                    <Link to="/">Found_IT</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Nav.Link as="span">
-                            <NavLink to="/home" exact activeStyle={{ color: 'SlateBlue' }}>Home</NavLink>
+                            <NavLink to="/" exact activeStyle={{ color: 'SlateBlue' }}>Home</NavLink>
                         </Nav.Link>
                         <Nav.Link as="span">
                             <NavLink to="/main/all" activeStyle={{ color: 'SlateBlue' }}>Find items</NavLink>
