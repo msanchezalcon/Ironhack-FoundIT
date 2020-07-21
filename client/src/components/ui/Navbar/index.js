@@ -37,7 +37,7 @@ class Navigation extends Component {
                             <NavLink to="/home" exact activeStyle={{ color: 'white' }}>Home</NavLink>
                         </Nav.Link>
                         <Nav.Link as="span">
-                            <NavLink to="/main" activeStyle={{ color: 'white' }}>Find items</NavLink>
+                            <NavLink to="/main/all" activeStyle={{ color: 'white' }}>Find items</NavLink>
                         </Nav.Link>
 
                         {this.props.loggedInUser ?
@@ -58,7 +58,7 @@ class Navigation extends Component {
                         }
 
                         <Nav.Link as="span">
-                            <NavLink to="/main" activeStyle={{ color: 'white' }}>Hi, {this.props.loggedInUser ? this.props.loggedInUser.username : 'guest'}</NavLink>
+                            <NavLink to="/main/all" activeStyle={{ color: 'white' }}>Hi, {this.props.loggedInUser ? this.props.loggedInUser.username : 'guest'}</NavLink>
                         </Nav.Link>
                     </Nav>
 

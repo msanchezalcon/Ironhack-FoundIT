@@ -12,6 +12,8 @@ import SignupForm from './auth/Signup-form'
 import LoginForm from './auth/Login-form'
 import IndexPage from './pages/index'
 import ProfilePage from './pages/profile'
+import ItemList from './items/Item-list'
+import ItemDetail from './items/Item-detail'
 
 
 class App extends Component {
@@ -56,12 +58,13 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/home" render={() => <IndexPage />} />
 
-                    <Route exact path="/main" render={() =>
+                    <Route exact path="/main/all" render={() =>
                         this.state.loggedInUser ? <ProfilePage loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />}
                     />
 
-                    {/* <Route exact path="/coasters" render={() => <CoastersList loggedInUser={this.state.loggedInUser} />} />
-          <Route path="/coasters/:coaster_id" render={props => <CoasterDetail {...props} />} /> */}
+                    <Route exact path="/main/all" render={() => <ItemList loggedInUser={this.state.loggedInUser} />} />
+                    <Route exact path="/main/:item_id" render={props => <ItemDetail {...props} />} />
+
                     <Route exact path="/signup" render={props => <SignupForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
                     <Route exact path="/login" render={props => <LoginForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
                 </Switch>

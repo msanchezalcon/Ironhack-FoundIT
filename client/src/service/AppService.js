@@ -10,8 +10,11 @@ export default class AppService {
         })
     }
 
-    getAllItems = () => this.service.get('/main')
+    getAllItems = () => this.service.get('/main/all')
+    newItem = item => this.service.post('/main/new', item)
     getOneItem = id => this.service.get(`/main/${id}`)
-    newItem = item => this.service.post(`/main/new`, item)
     editItem = id => this.service.post(`/main/${id}/edit`)
+    deleteItem = id => this.service.get(`/main/${id}/delete`)
+
+
 }
