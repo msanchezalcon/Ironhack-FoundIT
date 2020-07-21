@@ -1,6 +1,9 @@
 .item-card {
     /* margin-bottom: 10px; */
     height: 80%;
+    border-color: lightseagreen;
+    color: SlateBlue;
+    text-align: center;
 }
 
 .item-card img {
@@ -19,5 +22,4 @@
 
 .addBtn {
     width: 5%;
-    margin-left: 0;
 }

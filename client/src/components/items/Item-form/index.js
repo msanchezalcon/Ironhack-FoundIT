@@ -34,22 +34,22 @@ class ItemForm extends Component {
     render() {
         return (
             <>
-                <h3>New item</h3>
+                <h3 style={{ color: 'lightseagreen' }}>New item</h3>
                 <hr></hr>
-                <Form onSubmit={this.handleFormSubmit}>
+                <Form className="newForm" onSubmit={this.handleFormSubmit}>
                     <Form.Group>
-                        <Form.Label>Name</Form.Label>
+                        <Form.Label style={{ color: 'SlateBlue' }}>Name</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.name} name="name" type="text" />
                         <Form.Text className="text-muted">The devil is in the details</Form.Text>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Description</Form.Label>
+                        <Form.Label style={{ color: 'SlateBlue' }}>Description</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.description} name="description" type="text" />
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Category</Form.Label>
+                        <Form.Label style={{ color: 'SlateBlue' }}>Category</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.category} name="category" type="text" />
                     </Form.Group>
 
@@ -59,17 +59,17 @@ class ItemForm extends Component {
                     </Form.Group> */}
 
                     <Form.Group>
-                        <Form.Label>Image (URL)</Form.Label>
+                        <Form.Label style={{ color: 'SlateBlue' }}>Image (URL)</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label>Found by</Form.Label>
+                        <Form.Label style={{ color: 'SlateBlue' }}>Found by</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.foundBy} name="foundBy" type="text" />
                     </Form.Group>
 
 
-                    <Button variant="dark" type="submit">Submit</Button>
+                    <Button className="btn btn-light btn-block btn-sm details auth" type="submit">Submit</Button>
                 </Form>
             </>
         )
