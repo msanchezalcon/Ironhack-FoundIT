@@ -32,7 +32,7 @@ class LoginForm extends Component {
             .then(response => {
                 this.props.setTheUser(response.data)
                 this.props.handleToast(true, 'You are logged in')
-                this.props.history.push('/main')
+                this.props.history.push('/main/all')
             })
             .catch(err => console.log(err.response.data.message))   // Error handling yay!
     }
@@ -43,24 +43,24 @@ class LoginForm extends Component {
 
                 <Row>
                     <Col md={{ offset: 3, span: 6 }}>
-                        <h3>Log in</h3>
+                        <h3 style={{ color: 'lightseagreen' }}>Log in</h3>
 
                         <hr></hr>
 
                         <Form onSubmit={this.handleFormSubmit}>
 
                             <Form.Group>
-                                <Form.Label>Username</Form.Label>
+                                <Form.Label style={{ color: 'SlateBlue' }}>Username</Form.Label>
                                 <Form.Control onChange={this.handleInputChange} value={this.state.username} name="username" type="text" />
                             </Form.Group>
 
                             <Form.Group>
-                                <Form.Label>Password</Form.Label>
+                                <Form.Label style={{ color: 'SlateBlue' }}>Password</Form.Label>
                                 <Form.Control onChange={this.handleInputChange} value={this.state.password} name="password" type="password" />
                                 <Form.Text className="text-muted">At least two characters</Form.Text>
                             </Form.Group>
 
-                            <Button type="submit" className="details">Log in</Button>
+                            <Button type="submit" className="btn btn-light btn-block btn-sm details auth">Log in</Button>
                         </Form>
 
                     </Col>

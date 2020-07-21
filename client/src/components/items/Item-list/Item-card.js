@@ -15,7 +15,11 @@ const ItemCard = ({ _id, name, imageUrl }) => {
                 <Card.Img variant="top" src={imageUrl} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
-                    <Link to={`/main/${_id}`} className="btn btn-light btn-block btn-sm details">See details</Link>
+                    <div className="imgCardContainer">
+                        <Link to={`/main/${_id}`}><img className="imgCards" src="./../../../../../magnifying-glass.svg" /></Link>
+                        <Link to={`/main/${_id}/edit`}><img className="imgCards" src="./../../../../../edit.svg" /></Link>
+                        <Link to={`/main/${_id}/delete`}><img className="imgCards" src="./../../../../../delete.svg" /></Link>
+                    </div>
                 </Card.Body>
             </Card>
         </Col>

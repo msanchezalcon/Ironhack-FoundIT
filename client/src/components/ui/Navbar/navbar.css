@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 .details {
-    color: SlateBlue;
+    color: lightseagreen;
+    font-family: 'Quicksand', sans-serif;
+    background-color: lightseagreen;
+}
+
+.imgLogo {
+    width: 5%;
 }

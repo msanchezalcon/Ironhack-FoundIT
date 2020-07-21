@@ -57,7 +57,7 @@ class ItemList extends Component {
                     {/* <ProfilePage loggedInUser={this.state.loggedInUser} /> */}
 
                     {
-                        this.props.loggedInUser && <Button onClick={() => this.handleModal(true)} variant="dark" size="sm" style={{ marginBottom: '20px' }}>Register new item</Button>
+                        this.props.loggedInUser && <Button variant="link" onClick={() => this.handleModal(true)}><img className="addBtn" src="./../../../../../add.png" /></Button>
                     }
 
                     {

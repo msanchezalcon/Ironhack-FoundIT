@@ -1,0 +1,24 @@
+.homePage {
+    position: relative;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+
+.registerBtns {
+    color: lightseagreen;
+    border-color: BlueViolet;}
+
+.imgPag {
+    width: 100%;
+}
+
+.auth {
+    width: 40%;
+    margin-left: 30%;
+}
+
+.details {
+    color: lightseagreen;
+    border-color: BlueViolet;
+    background-color: whitesmoke;
+}

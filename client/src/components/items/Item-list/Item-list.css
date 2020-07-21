@@ -1,5 +1,6 @@
 .item-card {
-    margin-bottom: 40px;
+    /* margin-bottom: 10px; */
+    height: 80%;
 }
 
 .item-card img {
@@ -8,5 +9,15 @@
 
 .details {
     color: SlateBlue;
-    border-color: BlueViolet;
+    border-color: lightseagreen;
+}
+
+.imgCards {
+    width: 15px;
+    margin: 10%;
+}
+
+.addBtn {
+    width: 5%;
+    margin-left: 0;
 }
