@@ -12,7 +12,7 @@ class ItemForm extends Component {
             description: '',
             category: '',
             // location: '',
-            imageUrl: '',
+            // imageUrl: '',
             foundBy: ''
         }
         this.appService = new AppService()
@@ -40,7 +40,7 @@ class ItemForm extends Component {
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Name</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.name} name="name" type="text" />
-                        <Form.Text className="text-muted">The devil is in the details</Form.Text>
+                        <Form.Text className="text-muted">The devil is in the details ;)</Form.Text>
                     </Form.Group>
 
                     <Form.Group>
@@ -58,10 +58,10 @@ class ItemForm extends Component {
                         <Form.Control onChange={this.handleInputChange} value={this.state.location} name="location" type="number" />
                     </Form.Group> */}
 
-                    <Form.Group>
+                    {/* <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Image (URL)</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Found by</Form.Label>
