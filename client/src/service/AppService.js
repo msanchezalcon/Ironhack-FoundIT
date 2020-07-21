@@ -1,16 +1,16 @@
-import axios from 'axios'
+// // import axios from 'axios'
 
-export default class AppService {
+// // export default class AppService {
 
-    constructor() {
+//     constructor() {
 
-        this.service = axios.create({
-            baseURL: 'http://localhost:5000/api',
-            withCredentials: true
-        })
-    }
+//         this.service = axios.create({
+//             baseURL: 'http://localhost:5000/api',
+//             withCredentials: true
+//         })
+//     }
 
-    getAllItems = () => this.service.get('/main')
-    getOneItem = id => this.service.get(`/main/${id}`)
-    newItem = item => this.service.post(`/main/new`, item)
-}
+//     getAllItems = () => this.service.get('/main')
+//     getOneItem = id => this.service.get(`/main/${id}`)
+//     newItem = item => this.service.post(`/main/new`, item)
+// }

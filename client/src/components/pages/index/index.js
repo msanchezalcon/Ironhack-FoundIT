@@ -4,8 +4,11 @@ const Index = () => {
 
     return (
         <>
-            <h1>CoastersApp_</h1>
-            <p>Perder la cabeza a saco</p>
+            <div className='container'>
+                <h1>Found IT</h1>
+                <p>...maybe</p>
+            </div>
+
         </>
     )
 }

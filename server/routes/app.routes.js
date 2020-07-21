@@ -33,13 +33,23 @@ router.get('/:item_id/edit', (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post('/:item_id/edit', (req, res, next) => {
+router.put('/:item_id/edit', (req, res, next) => {
 
     const { name, description, category, location, imageUrl, foundBy } = req.body
-    // no funciona
-    // const category2 = req.body.category
-    // const tempCategory = category2 || req.user.category
-
+    // const name = req.body.name
+    // const description = req.body.description
+    // const category = req.body.category
+    // const location = req.body.location
+    // const imageUrl = req.body.imageUrl
+    // const foundBy = req.body.foundBy
+    // // no funciona
+    // const tempName = name || req.user.name
+    // const tempCategory = category || req.user.category
+    // const tempLoc = location || req.user.location
+    // const tempDescrip = description || req.user.description
+    // const tempImg = imageUrl || req.user.imageUrl
+    // const tempFound = foundBy || req.user.foundBy
+    // { name: tempName, description: tempDescrip, category: tempCategory, location: tempLoc, imageUrl: tempImg, foundBy: tempFound }
     Item.findByIdAndUpdate(req.params.item_id, { name, description, category, location, imageUrl, foundBy })
         .then(response => res.json(response))
         .catch(err => next(err))

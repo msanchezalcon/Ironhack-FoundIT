@@ -20,12 +20,13 @@ App routes:
 
 |Id | Method  |  Path                     | Description                                      | Querys         |
 |---|:-------:|:-------------------------:|:------------------------------------------------:|---------------:|
-| 1 |get      |/api/main/all              | Shows all items                                  |                |
-| 2 |get      |/api/main/:item_id         | Shows item details                               |                |
-| 3 |get      |/api/main/:item_id/edit    | Shows edit form for item                         |                |
-| 4 |post     |/api/main/:item_id/edit'   | Edits item                                       |                |
-| 5 |post     |/api/main/new              | Adds new item                                    |                |
-| 6 |get      |/api/main/:item_id/delete  | Deletes item                                     |                |
+| 1 |get      |/api/home                  | Index page                                       |                |
+| 2 |get      |/api/main/all              | Shows all items                                  |                |
+| 3 |get      |/api/main/:item_id         | Shows item details                               |                |
+| 4 |get      |/api/main/:item_id/edit    | Shows edit form for item                         |                |
+| 5 |post     |/api/main/:item_id/edit'   | Edits item                                       |                |
+| 6 |post     |/api/main/new              | Adds new item                                    |                |
+| 7 |get      |/api/main/:item_id/delete  | Deletes item                                     |                |
 
 
 
