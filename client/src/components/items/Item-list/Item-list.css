@@ -4,5 +4,9 @@
 
 .item-card img {
     height: 180px;
-    object-fit: cover;
+}
+
+.details {
+    color: SlateBlue;
+    border-color: BlueViolet;
 }

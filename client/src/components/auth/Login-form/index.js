@@ -60,7 +60,7 @@ class LoginForm extends Component {
                                 <Form.Text className="text-muted">At least two characters</Form.Text>
                             </Form.Group>
 
-                            <Button variant="dark" type="submit">Log in</Button>
+                            <Button type="submit" className="details">Log in</Button>
                         </Form>
 
                     </Col>

@@ -4,6 +4,7 @@ import AppService from '../../../service/AppService'
 import ItemCard from './Item-card'
 import ItemForm from './../Item-form'
 import Spinner from '../../ui/Spinner'
+import ProfilePage from '../../pages/profile'
 
 
 import './Item-list.css'
@@ -29,9 +30,12 @@ class ItemList extends Component {
     componentDidMount = () => this.updateItemList()
 
     updateItemList = () => {
-        this.itemService
+        this.appService
             .getAllItems()
-            .then(response => this.setState({ items: response.data }))
+            .then(response => {
+                console.log('all items', response.data)
+                this.setState({ items: response.data })
+            })
             .catch(err => console.log(err))
     }
 
@@ -50,7 +54,7 @@ class ItemList extends Component {
 
                 <Container as="main" className="items-page">
 
-                    {/* <h1>All lost items</h1> */}
+                    {/* <ProfilePage loggedInUser={this.state.loggedInUser} /> */}
 
                     {
                         this.props.loggedInUser && <Button onClick={() => this.handleModal(true)} variant="dark" size="sm" style={{ marginBottom: '20px' }}>Register new item</Button>

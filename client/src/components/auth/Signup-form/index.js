@@ -8,6 +8,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+import './signup.css'
+
 
 class SignupForm extends Component {
     constructor(props) {
@@ -60,7 +62,7 @@ class SignupForm extends Component {
                                 <Form.Text className="text-muted">At least two characters</Form.Text>
                             </Form.Group>
 
-                            <Button variant="dark" type="submit">Sign up</Button>
+                            <Button type="submit" className="details">Sign up</Button>
                         </Form>
 
                     </Col>

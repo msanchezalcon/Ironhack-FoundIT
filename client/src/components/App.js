@@ -11,7 +11,6 @@ import Message from './ui/CustomToast'
 import SignupForm from './auth/Signup-form'
 import LoginForm from './auth/Login-form'
 import IndexPage from './pages/index'
-import ProfilePage from './pages/profile'
 import ItemList from './items/Item-list'
 import ItemDetail from './items/Item-detail'
 
@@ -56,17 +55,19 @@ class App extends Component {
                 <Navigation setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} handleToast={this.handleToast} />
 
                 <Switch>
+
                     <Route exact path="/home" render={() => <IndexPage />} />
 
-                    <Route exact path="/main/all" render={() =>
-                        this.state.loggedInUser ? <ProfilePage loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />}
-                    />
+                    <Route exact path="/main/all" render={() => this.state.loggedInUser ? <ItemList loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />} />
 
-                    <Route exact path="/main/all" render={() => <ItemList loggedInUser={this.state.loggedInUser} />} />
+                    {/* <Route exact path="/main/all" render={() => <ItemList loggedInUser={this.state.loggedInUser} />} /> */}
+
                     <Route exact path="/main/:item_id" render={props => <ItemDetail {...props} />} />
 
                     <Route exact path="/signup" render={props => <SignupForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
+
                     <Route exact path="/login" render={props => <LoginForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
+
                 </Switch>
 
                 <Message {...this.state.toast} handleToast={this.handleToast} />
