@@ -28,7 +28,7 @@ class Navigation extends Component {
         return (
             <Navbar bg="light" variant="light" expand="lg" sticky="top" className="details">
                 <Navbar.Brand>
-                    <Link to="/" style={{ color: 'lightseagreen' }}><img className="imgLogo" src="./../../../../../wedding.svg" /> Found IT</Link>
+                    <Link to="/" style={{ color: 'lightseagreen' }}><img className="imgLogo" src="./../../../../../wedding.svg" alt="main logo" /> Found IT</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

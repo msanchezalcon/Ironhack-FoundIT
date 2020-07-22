@@ -11,7 +11,7 @@ const Index = () => {
     return (
         <>
             <div className='container homePage'>
-                <img className="imgPag" src="./../../../../../logo_transparent.png" />
+                <img className="imgPag" src="./../../../../../logo_transparent.png" alt="company logo" />
             </div>
 
             <div className="container registerBtns">

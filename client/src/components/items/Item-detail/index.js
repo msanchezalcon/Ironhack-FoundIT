@@ -1,58 +1,64 @@
-// import React, { Component } from 'react'
+import React, { Component } from 'react'
 
-// import CoasterService from '../../../service/CoasterService'
+import AppService from '../../../service/AppService'
 
-// import Container from 'react-bootstrap/Container'
-// import Row from 'react-bootstrap/Row'
-// import Col from 'react-bootstrap/Col'
-// import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import { Link } from 'react-router-dom'
+import Spinner from '../../ui/Spinner'
 
-// class CoasterDetails extends Component {
-//     constructor() {
-//         super()
-//         this.state = {
-//             coasterDetails: undefined
-//         }
-//         this.coasterService = new CoasterService()
-//     }
+import './item-detail.css'
 
-//     componentDidMount = () => {
+class ItemDetails extends Component {
+    constructor() {
+        super()
+        this.state = {
+            itemDetails: undefined
+        }
+        this.appService = new AppService()
+    }
 
-//         const id = this.props.match.params.coaster_id
+    componentDidMount = () => {
 
-//         this.coasterService
-//             .getOneCoaster(id)
-//             .then(response => this.setState({ coasterDetails: response.data }))
-//             .catch(err => console.log(err))
-//     }
+        const id = this.props.match.params.item_id
 
-//     render() {
+        this.appService
+            .getOneItem(id)
+            .then(response => this.setState({ itemDetails: response.data }))
+            .catch(err => console.log(err))
+    }
 
-//         return (
+    render() {
 
-//             !this.state.coasterDetails ? <h3>CARGANDO</h3> :
+        return (
+            <>
+                <Container as="main">
 
-//                 <Container as="main">
+                    {
+                        !this.state.itemDetails ? <Spinner /> :
 
-//                     <h1>{this.state.coasterDetails.title}</h1>
+                            <Row>
+                                <h1>{this.state.itemDetails.name}</h1>
+                                <Col md={{ span: 5, offset: 1 }}>
+                                    <p><b>Category:</b> {this.state.itemDetails.category}</p>
+                                    <p><b>Description</b> {this.state.itemDetails.description}</p>
+                                    <hr></hr>
+                                    {/* <p><b>Location:</b> {this.state.itemDetails.location}</p> */}
+                                    <p><b>Found by:</b> {this.state.itemDetails.foundBy}</p>
+                                    <hr></hr>
+                                    <Link className="btn btn-light btn-block btn-sm details auth" to='/main/all'>Back to search</Link>
+                                </Col>
+                                <Col md={{ span: 4, offset: 1 }}>
+                                    <img src={this.state.itemDetails.imageUrl} alt={this.state.itemDetails.name} />
+                                </Col>
+                            </Row>
+                    }
 
-//                     <Row>
-//                         <Col md={{ span: 5, offset: 1 }}>
-//                             <p><b>Detalles:</b> {this.state.coasterDetails.description}</p>
-//                             <hr></hr>
-//                             <p><b>Longitud:</b> {this.state.coasterDetails.length}</p>
-//                             <p><b>Inversiones:</b> {this.state.coasterDetails.inversions}</p>
-//                             <hr></hr>
-//                             <Link className="btn btn-dark btn-md" to='/coasters'>Volver</Link>
-//                         </Col>
-//                         <Col md={{ span: 4, offset: 1 }}>
-//                             <img src={this.state.coasterDetails.imageUrl} alt={this.state.coasterDetails.title} />
-//                         </Col>
-//                     </Row>
+                </Container>
+            </>
+        )
+    }
+}
 
-//                 </Container>
-//         )
-//     }
-// }
-
-// export default CoasterDetails
+export default ItemDetails
