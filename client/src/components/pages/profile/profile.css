@@ -1,0 +1,21 @@
+.avatarUser {
+    width: 10%;
+}
+
+.details {
+    color: lightseagreen;
+    border-color: BlueViolet;
+    background-color: whitesmoke;
+}
+
+.details:hover {
+    color: lightseagreen;
+}
+
+.auth {
+    width: 15%;
+}
+
+.profileCol{
+
+}

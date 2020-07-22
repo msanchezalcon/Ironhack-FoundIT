@@ -42,8 +42,9 @@ class ItemDetails extends Component {
                                 <Col md={{ span: 5, offset: 1 }}>
                                     <h1>{this.state.itemDetails.name}</h1>
                                     <hr></hr>
+                                    <h4> {this.state.itemDetails.description}</h4>
+                                    <br></br>
                                     <p><b>Category:</b> {this.state.itemDetails.category}</p>
-                                    <p><b>Description:</b> {this.state.itemDetails.description}</p>
                                     {/* <p><b>Location:</b> {this.state.itemDetails.location}</p> */}
                                     <p><b>Found by:</b> {this.state.itemDetails.foundBy}</p>
                                     <hr></hr>

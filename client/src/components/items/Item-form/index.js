@@ -10,10 +10,10 @@ class ItemForm extends Component {
         this.state = {
             name: '',
             description: '',
-            category: '',
+            category: ''
             // location: '',
             // imageUrl: '',
-            foundBy: ''
+            // foundBy: ''
         }
         this.appService = new AppService()
     }
@@ -63,10 +63,10 @@ class ItemForm extends Component {
                         <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
                     </Form.Group> */}
 
-                    <Form.Group>
+                    {/* <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Found by</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.foundBy} name="foundBy" type="text" />
-                    </Form.Group>
+                    </Form.Group> */}
 
 
                     <Button className="btn btn-light btn-block btn-sm details auth" type="submit">Submit</Button>

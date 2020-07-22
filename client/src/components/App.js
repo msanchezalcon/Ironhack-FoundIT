@@ -13,6 +13,7 @@ import LoginForm from './auth/Login-form'
 import IndexPage from './pages/index'
 import ItemList from './items/Item-list'
 import ItemDetail from './items/Item-detail'
+import Profile from './pages/profile'
 
 
 class App extends Component {
@@ -63,6 +64,8 @@ class App extends Component {
                     {/* <Route exact path="/main/all" render={() => <ItemList loggedInUser={this.state.loggedInUser} />} /> */}
 
                     <Route exact path="/main/:item_id" render={props => <ItemDetail {...props} />} />
+
+                    <Route exact path="/user" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
 
                     <Route exact path="/signup" render={props => <SignupForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
 

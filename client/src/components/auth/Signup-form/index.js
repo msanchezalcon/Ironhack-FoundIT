@@ -15,6 +15,7 @@ class SignupForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            name: '',
             username: '',
             password: ''
         }
@@ -50,6 +51,10 @@ class SignupForm extends Component {
                         <hr></hr>
 
                         <Form onSubmit={this.handleFormSubmit}>
+                            <Form.Group>
+                                <Form.Label style={{ color: 'SlateBlue' }}>Name</Form.Label>
+                                <Form.Control onChange={this.handleInputChange} value={this.state.name} name="name" type="text" />
+                            </Form.Group>
 
                             <Form.Group>
                                 <Form.Label style={{ color: 'SlateBlue' }}>Username</Form.Label>
