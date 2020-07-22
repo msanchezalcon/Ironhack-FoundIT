@@ -39,11 +39,11 @@ class ItemDetails extends Component {
                         !this.state.itemDetails ? <Spinner /> :
 
                             <Row>
-                                <h1>{this.state.itemDetails.name}</h1>
                                 <Col md={{ span: 5, offset: 1 }}>
-                                    <p><b>Category:</b> {this.state.itemDetails.category}</p>
-                                    <p><b>Description</b> {this.state.itemDetails.description}</p>
+                                    <h1>{this.state.itemDetails.name}</h1>
                                     <hr></hr>
+                                    <p><b>Category:</b> {this.state.itemDetails.category}</p>
+                                    <p><b>Description:</b> {this.state.itemDetails.description}</p>
                                     {/* <p><b>Location:</b> {this.state.itemDetails.location}</p> */}
                                     <p><b>Found by:</b> {this.state.itemDetails.foundBy}</p>
                                     <hr></hr>
