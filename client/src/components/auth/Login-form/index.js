@@ -32,7 +32,7 @@ class LoginForm extends Component {
             .then(response => {
                 this.props.setTheUser(response.data)
                 this.props.handleToast(true, 'You are logged in')
-                this.props.history.push('/main/all')
+                this.props.history.push('/all')
             })
             .catch(err => console.log(err.response.data.message))   // Error handling yay!
     }

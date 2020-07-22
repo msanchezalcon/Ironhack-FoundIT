@@ -37,7 +37,7 @@ class Navigation extends Component {
                             <NavLink to="/" exact activeStyle={{ color: 'lightseagreen' }}>Home</NavLink>
                         </Nav.Link>
                         <Nav.Link as="span">
-                            <NavLink to="/main/all" activeStyle={{ color: 'lightseagreen' }}>Find items</NavLink>
+                            <NavLink to="/items/all" activeStyle={{ color: 'lightseagreen' }}>Find items</NavLink>
                         </Nav.Link>
 
                         {this.props.loggedInUser ?

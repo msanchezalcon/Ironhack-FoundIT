@@ -30,9 +30,10 @@ class ItemDetails extends Component {
     }
 
     render() {
-
+        console.log('detail props', this.state.props)
         return (
             <>
+
                 <Container as="main">
 
                     {
@@ -48,7 +49,7 @@ class ItemDetails extends Component {
                                     {/* <p><b>Location:</b> {this.state.itemDetails.location}</p> */}
                                     <p><b>Found by:</b> {this.state.itemDetails.foundBy}</p>
                                     <hr></hr>
-                                    <Link className="btn btn-light btn-block btn-sm details auth" to='/main/all'>Back to search</Link>
+                                    <Link className="btn btn-light btn-block btn-sm details authDetail" to='/items/all'>Back to search</Link>
                                 </Col>
                                 <Col md={{ span: 4, offset: 1 }}>
                                     <img src={this.state.itemDetails.imageUrl} alt={this.state.itemDetails.name} />

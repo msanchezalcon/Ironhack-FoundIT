@@ -5,36 +5,57 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 class ItemForm extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             name: '',
             description: '',
-            category: ''
+            category: '',
             // location: '',
             // imageUrl: '',
-            // foundBy: ''
+            foundBy: ''
         }
         this.appService = new AppService()
     }
 
+
+    updateCurrentState = data => {
+        this.setState({
+            name: data.name || "",
+            category: data.category || "",
+            description: data.description || ""
+
+        })
+
+    }
+
     handleInputChange = e => {
         const { name, value } = e.target
-        this.setState({ [name]: value })
+        this.setState({ [name]: value, foundBy: this.props.loggedInUser._id })
     }
 
     handleFormSubmit = e => {
         e.preventDefault()
+        this.appService.newItem(this.state)
+            .then(() => this.props.handleItemSubmit())
+            .catch(err => console.log(err))
+    }
+
+
+    handleUpdateSubmit = e => {
+        e.preventDefault()
         this.appService
-            .newItem(this.state)
+            .editItem(this.state)
             .then(() => this.props.handleItemSubmit())
             .catch(err => console.log(err))
     }
 
     render() {
+        console.log("FORM", this.props)
         return (
             <>
-                <h3 style={{ color: 'lightseagreen' }}>New item</h3>
+                {/* form for both creating and editing */}
+                <h3 style={{ color: 'lightseagreen' }}>Item info</h3>
                 <hr></hr>
                 <Form className="newForm" onSubmit={this.handleFormSubmit}>
                     <Form.Group>

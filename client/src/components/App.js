@@ -6,6 +6,7 @@ import AuthService from './../service/AuthService'
 
 import { Switch, Route, Redirect } from 'react-router-dom'
 
+
 import Navigation from './ui/Navbar'
 import Message from './ui/CustomToast'
 import SignupForm from './auth/Signup-form'
@@ -59,11 +60,11 @@ class App extends Component {
 
                     <Route exact path="/" render={() => <IndexPage />} />
 
-                    <Route exact path="/main/all" render={() => this.state.loggedInUser ? <ItemList loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />} />
+                    <Route exact path="/items/all" render={() => this.state.loggedInUser ? <ItemList loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />} />
 
                     {/* <Route exact path="/main/all" render={() => <ItemList loggedInUser={this.state.loggedInUser} />} /> */}
 
-                    <Route exact path="/main/:item_id" render={props => <ItemDetail {...props} />} />
+                    <Route exact path="/items/:item_id" render={props => <ItemDetail {...props} />} />
 
                     <Route exact path="/user" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
 

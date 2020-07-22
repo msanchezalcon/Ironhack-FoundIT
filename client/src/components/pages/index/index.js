@@ -15,8 +15,8 @@ const Index = () => {
             </div>
 
             <div className="container registerBtns">
-                <Button className="btn btn-light btn-block btn-sm details auth"><Link to="/signup" activeStyle={{ color: 'lightseagreen' }}>Sign up</Link></Button>
-                <Button className="btn btn-light btn-block btn-sm details auth"><Link to="/login" activeStyle={{ color: 'lightseagreen' }}>Log in</Link></Button>
+                <Button className="btn btn-light btn-block btn-sm details authIndex"><Link to="/signup" activeStyle={{ color: 'lightseagreen' }}>Sign up</Link></Button>
+                <Button className="btn btn-light btn-block btn-sm details authIndex"><Link to="/login" activeStyle={{ color: 'lightseagreen' }}>Log in</Link></Button>
             </div>
 
         </>
