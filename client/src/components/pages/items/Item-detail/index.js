@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import AppService from '../../../service/AppService'
+import AppService from '../../../../service/AppService'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
-import Spinner from '../../ui/Spinner'
+import Spinner from '../../../ui/Spinner'
 
 import './item-detail.css'
 

@@ -41,7 +41,7 @@ class EditProfileForm extends Component {
 
 
     render() {
-        console.log("COMO ES", this.props.setTheUser)
+        console.log("set the user in profile form", this.props.setTheUser)
         return (
             <>
                 <Col md={{ offset: 3, span: 6 }}>

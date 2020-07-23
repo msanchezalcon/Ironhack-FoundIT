@@ -12,8 +12,8 @@ import Message from './ui/CustomToast'
 import SignupForm from './auth/Signup-form'
 import LoginForm from './auth/Login-form'
 import IndexPage from './pages/index'
-import ItemList from './items/Item-list'
-import ItemDetail from './items/Item-detail'
+import ItemList from './../components/pages/items/Item-main'
+import ItemDetail from './../components/pages/items/Item-detail'
 import Profile from './pages/profile'
 
 

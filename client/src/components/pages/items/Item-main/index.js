@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import AppService from '../../../service/AppService'
+import AppService from '../../../../service/AppService'
 
 import ItemCard from './Item-card'
 import ItemForm from './../Item-form'
-import Spinner from '../../ui/Spinner'
+import Spinner from '../../../ui/Spinner'
 // import ProfilePage from '../../pages/profile'
 
 

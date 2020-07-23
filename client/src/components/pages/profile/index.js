@@ -7,7 +7,7 @@ import './profile.css'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Modal from 'react-bootstrap/Modal'
-import ItemCardProfile from './../../items/Item-list/Item-card-profile'
+import ItemCardProfile from './../items/Item-main/Item-card-profile'
 import Spinner from '../../ui/Spinner'
 import EditProfileForm from './EditProfileForm'
 
@@ -50,8 +50,8 @@ class Profile extends Component {
     }
 
 
-
     //-----------------------------------------------------------------------
+
     deleteItem = (id) => {
         this.appService.deleteItem(id)
             .then(response => {
@@ -60,7 +60,16 @@ class Profile extends Component {
             })
             .catch(err => console.log(err))
     }
+
     // TO DO create function for editing item
+
+
+
+
+
+
+
+
 
     //--------------------------------------------------------------------
 
@@ -73,9 +82,6 @@ class Profile extends Component {
         this.updateItemList()
     }
 
-
-
-    //TO DO create function for editing user info: editUser(id, data)
 
 
     //--------------------------------------------------------------------
@@ -95,7 +101,7 @@ class Profile extends Component {
 
                 <div className="container">
                     <h2> Hi, {this.props.loggedInUser.name}!</h2>
-                    <p><img className="avatarUser" src={this.props.loggedInUser.imageUrl} alt="user avatar" /></p>
+                    <p><img className="avatarUser" src={this.props.loggedInUser.avatar} alt="user avatar" /></p>
                     <Button className="btn btn-light btn-block btn-sm details auth" onClick={() => this.handleModal(true)}>Edit profile</Button>
                     <hr></hr>
                     <br></br>
