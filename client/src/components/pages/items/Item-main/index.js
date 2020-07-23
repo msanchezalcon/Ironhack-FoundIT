@@ -15,6 +15,8 @@ import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import add from './add.svg'
+import app from './app.svg'
+
 
 
 class ItemList extends Component {
@@ -86,7 +88,7 @@ class ItemList extends Component {
                 {/* shows each individual item in general search view and allows creating new one with button*/}
                 <Container as="main" className="items-page">
                     {
-                        this.props.loggedInUser && <div className='container'> <Button variant="link" onClick={() => this.handleModal(true)}><img className="addBtn" src={add} alt="add" /></Button></div>
+                        this.props.loggedInUser && <div className='container'> <Button variant="link" onClick={() => this.handleModal(true)}><img className="addBtn" src={app} alt="add" /></Button></div>
                     }
                     {
                         !this.state.items ? <Spinner /> :
