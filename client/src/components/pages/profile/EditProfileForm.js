@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router-dom'
-
 import UserService from '../../../service/UserService'
 import './profile.css'
 import Form from 'react-bootstrap/Form'
@@ -14,8 +12,9 @@ class EditProfileForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
-            username: ''
+            name: this.props.name,
+            username: this.props.username
+            //keep adding info from user
         }
         this.userService = new UserService()
     }
@@ -25,22 +24,17 @@ class EditProfileForm extends Component {
         this.setState({ [name]: value })
     }
 
-    updateCurrentState = data => { //where, when?? does it merge with the one above?
-        this.setState({
-            name: data.name || "",
-            username: data.username || ""
-        })
-    }
 
     handleFormSubmit = e => {
         e.preventDefault()
         this.userService
-            .editUser(this.props.loggedInUser.id, this.state) //???
+            .editUser(this.state, this.props.id)
             .then(response => {
-                this.props.setTheUser(response.data) //????
-                this.props.handleToast(true, 'Edited successfully')
-                this.props.history.push('/user')
-                this.handleItemSubmit()
+                this.props.setTheUser(response.data)
+                // this.props.handleToast(true, 'Edited successfully')
+                // this.props.history.push('/user')
+                // this.handleItemSubmit()
+                this.props.closeModal()
             })
             .catch(err => console.log(err.response.data.message))
     }

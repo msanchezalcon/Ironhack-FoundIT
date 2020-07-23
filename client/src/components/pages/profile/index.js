@@ -17,7 +17,7 @@ class Profile extends Component {
         super(props)
         this.state = {
             items: [],
-            showUpdateModal: false,
+            showModal: false,
             id: this.props.loggedInUser._id
         }
 
@@ -40,11 +40,10 @@ class Profile extends Component {
     }
 
     updateItemList = () => {
-        console.log("ENTROOOOOOOOO")
         this.userService
             .getUserItems(this.state.id)
             .then(response => {
-                console.log('all items', response.data)
+                console.log('all items from this user', response.data)
                 this.setState({ items: response.data })
             })
             .catch(err => console.log(err))
@@ -64,10 +63,11 @@ class Profile extends Component {
     //--------------------------------------------------------------------
 
     //edit profile
-    handleUpdateModal = status => this.setState({ showUpdateModal: status })
+    handleModal = () => this.setState({ showModal: true })
+    onHide = () => this.setState({ showModal: false })
 
     handleItemSubmit = () => {
-        this.handleUpdateModal(false)
+        this.handleModal(false)
         this.updateItemList()
     }
 
@@ -87,7 +87,7 @@ class Profile extends Component {
             <>
 
                 <div className="container">
-                    <h2> Hi, {this.props.loggedInUser.name}!</h2>
+                    <h2> Hi, {this.props.loggedInUser.username}!</h2>
                     <p><img className="avatarUser" src={this.props.loggedInUser.avatar} alt="user avatar" /></p>
                     <Button className="btn btn-light btn-block btn-sm details auth" onClick={() => this.handleModal(true)}>Edit</Button>
                     <hr></hr>

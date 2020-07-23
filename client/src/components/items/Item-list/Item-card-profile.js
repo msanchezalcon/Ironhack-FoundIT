@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import './Item-list.css'
 
 
-const ItemCardProfile = ({ _id, name, imageUrl, deleteItem, editItem }) => {
+const ItemCardProfile = ({ _id, name, imageUrl, deleteItem, showUpdateModal }) => {
 
     console.log('ID DE LA CARTA', _id)
 
@@ -20,7 +20,7 @@ const ItemCardProfile = ({ _id, name, imageUrl, deleteItem, editItem }) => {
                     <Card.Title>{name}</Card.Title>
                     <div className="imgCardContainer">
                         <Link to={`/items/${_id}`}><img className="imgCards" src="./../../../../../magnifying-glass.svg" alt="see more" /></Link>
-                        {/* <Link to={`/items/${_id}/edit`} onClick={() => showUpdateModal(_id)} > <img className="imgCards" src="./../../../../../edit.svg" alt="edit" /></Link> */}
+                        <Link to={`/items/${_id}/edit`} onClick={() => showUpdateModal(_id)} > <img className="imgCards" src="./../../../../../edit.svg" alt="edit" /></Link>
                         <div onClick={() => deleteItem(_id)}><img className="imgCards" src="./../../../../../delete.svg" alt="delete" /></div>
                     </div>
                 </Card.Body>
