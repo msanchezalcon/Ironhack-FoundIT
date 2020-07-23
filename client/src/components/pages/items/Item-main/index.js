@@ -4,6 +4,7 @@ import AppService from '../../../../service/AppService'
 import ItemCard from './Item-card'
 import ItemForm from './../Item-form'
 import Spinner from '../../../ui/Spinner'
+import Form from './../Item-form/second-form'
 // import ProfilePage from '../../pages/profile'
 
 
@@ -13,9 +14,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import add from './add.png'
-import edit from './edit.svg'
-
+import add from './add.svg'
 
 
 class ItemList extends Component {
@@ -87,7 +86,7 @@ class ItemList extends Component {
                 {/* shows each individual item in general search view and allows creating new one with button*/}
                 <Container as="main" className="items-page">
                     {
-                        this.props.loggedInUser && <Button variant="link" onClick={() => this.handleModal(true)}><img className="addBtn" src={add} alt="add" /></Button>
+                        this.props.loggedInUser && <div className='container'> <Button variant="link" onClick={() => this.handleModal(true)}><img className="addBtn" src={add} alt="add" /></Button></div>
                     }
                     {
                         !this.state.items ? <Spinner /> :
@@ -100,9 +99,15 @@ class ItemList extends Component {
 
 
                 {/* handles submission of modal for creating new item */}
-                <Modal size="lg" show={this.state.showModal} onHide={() => this.handleModal(false)}>
+                {/* <Modal size="lg" show={this.state.showModal} onHide={() => this.handleModal(false)}>
                     <Modal.Body>
                         <ItemForm {...this.props} handleItemSubmit={this.handleItemSubmit} />
+                    </Modal.Body>
+                </Modal> */}
+
+                <Modal size="lg" show={this.state.showModal} onHide={() => this.handleModal(false)}>
+                    <Modal.Body>
+                        <Form {...this.props} handleItemSubmit={this.handleItemSubmit} />
                     </Modal.Body>
                 </Modal>
             </>

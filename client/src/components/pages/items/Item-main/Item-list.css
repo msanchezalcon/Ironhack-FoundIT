@@ -21,5 +21,7 @@
 }
 
 .addBtn {
-    width: 5%;
+    width: 20%;
+    display: flex;
+    margin: 20%;
 }
