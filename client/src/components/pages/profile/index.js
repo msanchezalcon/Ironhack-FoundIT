@@ -7,30 +7,42 @@ import './profile.css'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Modal from 'react-bootstrap/Modal'
-import ItemCard from './../../items/Item-list/Item-card'
+import ItemCardProfile from './../../items/Item-list/Item-card-profile'
 import Spinner from '../../ui/Spinner'
 import EditProfileForm from './EditProfileForm'
-
-
 
 
 class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: undefined,
-            showModal: false
+            items: [],
+            showUpdateModal: false,
+            id: this.props.loggedInUser._id
         }
 
-        this.AppService = new AppService()
+        this.appService = new AppService()
+        this.userService = new UserService()
+
     }
 
-    componentDidMount = () => this.updateItemList()
-
+    //--------------------------------------------------------------------
+    // gets all items from DB and updates list in profile
+    componentDidMount = () => {
+        if (this.props.loggedInUser) {
+            this.updateItemList()
+        }
+    }
+    componentDidUpdate = (prevProps) => {
+        if (!prevProps.loggedInUser && this.props.loggedInUser) {
+            this.updateItemList()
+        }
+    }
 
     updateItemList = () => {
-        this.appService
-            .getAllItems()
+        console.log("ENTROOOOOOOOO")
+        this.userService
+            .getUserItems(this.state.id)
             .then(response => {
                 console.log('all items', response.data)
                 this.setState({ items: response.data })
@@ -38,20 +50,38 @@ class Profile extends Component {
             .catch(err => console.log(err))
     }
 
+    //-----------------------------------------------------------------------
+    deleteItem = (id) => {
+        this.appService.deleteItem(id)
+            .then(response => {
+                const updateItem = this.state.items.filter(item => item._id !== id)
+                this.setState({ items: updateItem })
+            })
+            .catch(err => console.log(err))
+    }
+    // TO DO create function for editing item
 
+    //--------------------------------------------------------------------
 
-
-    handleModal = status => this.setState({ showModal: status })
+    //edit profile
+    handleUpdateModal = status => this.setState({ showUpdateModal: status })
 
     handleItemSubmit = () => {
-        this.handleModal(false)
+        this.handleUpdateModal(false)
         this.updateItemList()
     }
 
 
+
+    //TO DO create function for editing user info: editUser(id, data)
+
+
+    //--------------------------------------------------------------------
+
     render() {
         console.log('profile page props', this.props)
-        console.log('props de usuario', this.props.loggedInUser)
+        console.log('props de usuario en perfil', this.props.loggedInUser)
+        console.log('items en estado de perfil', this.state.items)
 
         return (
             <>
@@ -68,7 +98,7 @@ class Profile extends Component {
                     {
                         !this.state.items ? <Spinner /> :
                             <Row>
-                                {this.state.items.map(elm => (elm.foundBy === this.props.loggedInUser._id) ? <ItemCard key={elm._id} {...elm} /> : null
+                                {this.state.items.map(elm => <ItemCardProfile editItem={this.editItem} deleteItem={this.deleteItem} key={elm._id} {...elm} />
                                 )}
                             </Row>
                     }

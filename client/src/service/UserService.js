@@ -11,7 +11,7 @@ export default class UserService {
     }
 
     getAllUsers = () => this.service.get(`/users`)
-    getUserInfo = id => this.service.get(`/users/${id}`)
+    getUserItems = id => this.service.get(`/items/users/${id}`)
     editUser = (id, data) => this.service.post(`/users/${id}`, data)
 
 }
