@@ -13,7 +13,8 @@ class EditProfileForm extends Component {
         super(props)
         this.state = {
             name: this.props.name,
-            username: this.props.username
+            username: this.props.username,
+            avatar: this.props.avatar
             //keep adding info from user
         }
         this.userService = new UserService()
@@ -31,7 +32,7 @@ class EditProfileForm extends Component {
             .editUser(this.state, this.props.id)
             .then(response => {
                 this.props.setTheUser(response.data)
-                // this.props.handleToast(true, 'Edited successfully')
+                this.props.handleToast(true, 'Edited successfully')
                 // this.props.history.push('/user')
                 // this.handleItemSubmit()
                 this.props.closeModal()
@@ -57,6 +58,11 @@ class EditProfileForm extends Component {
                         <Form.Group>
                             <Form.Label style={{ color: 'SlateBlue' }}>Username</Form.Label>
                             <Form.Control onChange={this.handleInputChange} value={this.state.username} name="username" type="text" />
+                        </Form.Group>
+
+                        <Form.Group>
+                            <Form.Label style={{ color: 'SlateBlue' }}>Avatar</Form.Label>
+                            <Form.Control onChange={this.handleInputChange} value={this.state.avatar} name="avatar" type="text" />
                         </Form.Group>
 
                         <Button type="submit" className="btn btn-light btn-block btn-sm details auth">Submit</Button>

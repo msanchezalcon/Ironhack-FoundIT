@@ -85,6 +85,7 @@ class Profile extends Component {
         console.log('props de usuario en perfil', this.props.loggedInUser)
         console.log('items en estado de perfil', this.state.items)
 
+        const id = this.props.loggedInUser ? this.props.loggedInUser._id : ""
         const name = this.props.loggedInUser ? this.props.loggedInUser.name : ""
         const username = this.props.loggedInUser ? this.props.loggedInUser.username : ""
         const avatar = this.props.loggedInUser ? this.props.loggedInUser.avatar : ""
@@ -94,11 +95,11 @@ class Profile extends Component {
 
                 <div className="container">
                     <h2> Hi, {this.props.loggedInUser.username}!</h2>
-                    <p><img className="avatarUser" src={this.props.loggedInUser.avatar} alt="user avatar" /></p>
+                    <p><img className="avatarUser" src={this.props.loggedInUser.imageUrl} alt="user avatar" /></p>
                     <Button className="btn btn-light btn-block btn-sm details auth" onClick={() => this.handleModal(true)}>Edit</Button>
                     <hr></hr>
                     <br></br>
-                    <h4>These are your listed items:</h4>
+                    <h4>These are your listed items, {name}:</h4>
                     <br></br>
 
                     {
@@ -116,8 +117,7 @@ class Profile extends Component {
                 <Modal size="lg" show={this.state.showModal} onHide={this.onHide} >
                     <Modal.Body>
                         <Row>
-                            {this.state.showModal ? <EditProfileForm name={name} username={username} closeModal={this.onHide} /> : null}
-
+                            {this.state.showModal ? <EditProfileForm id={id} name={name} username={username} avatar={avatar} closeModal={this.onHide} /> : null}
                         </Row>
                     </Modal.Body>
                 </Modal>
