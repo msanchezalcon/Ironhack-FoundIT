@@ -29,19 +29,19 @@ class EditProfileForm extends Component {
     handleFormSubmit = e => {
         e.preventDefault()
         this.userService
-            .editUser(this.state, this.props.id)
+            .editUser(this.props.id, this.state)
             .then(response => {
                 this.props.setTheUser(response.data)
-                this.props.handleToast(true, 'Edited successfully')
                 // this.props.history.push('/user')
                 // this.handleItemSubmit()
                 this.props.closeModal()
             })
-            .catch(err => console.log(err.response.data.message))
+            .catch(err => console.log(err))
     }
 
 
     render() {
+        console.log("COMO ES", this.props.setTheUser)
         return (
             <>
                 <Col md={{ offset: 3, span: 6 }}>

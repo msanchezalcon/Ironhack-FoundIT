@@ -94,12 +94,12 @@ class Profile extends Component {
             <>
 
                 <div className="container">
-                    <h2> Hi, {this.props.loggedInUser.username}!</h2>
+                    <h2> Hi, {this.props.loggedInUser.name}!</h2>
                     <p><img className="avatarUser" src={this.props.loggedInUser.imageUrl} alt="user avatar" /></p>
-                    <Button className="btn btn-light btn-block btn-sm details auth" onClick={() => this.handleModal(true)}>Edit</Button>
+                    <Button className="btn btn-light btn-block btn-sm details auth" onClick={() => this.handleModal(true)}>Edit profile</Button>
                     <hr></hr>
                     <br></br>
-                    <h4>These are your listed items, {name}:</h4>
+                    <h4>These are your listed items:</h4>
                     <br></br>
 
                     {
@@ -117,7 +117,7 @@ class Profile extends Component {
                 <Modal size="lg" show={this.state.showModal} onHide={this.onHide} >
                     <Modal.Body>
                         <Row>
-                            {this.state.showModal ? <EditProfileForm id={id} name={name} username={username} avatar={avatar} closeModal={this.onHide} /> : null}
+                            {this.state.showModal ? <EditProfileForm id={id} name={name} username={username} avatar={avatar} closeModal={this.onHide} setTheUser={this.props.setTheUser} /> : null}
                         </Row>
                     </Modal.Body>
                 </Modal>
