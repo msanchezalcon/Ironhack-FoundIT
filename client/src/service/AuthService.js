@@ -5,7 +5,8 @@ export default class AuthService {
     constructor() {
 
         this.service = axios.create({
-            baseURL: 'http://localhost:5000/api',
+            // baseURL: 'http://localhost:5000/api',
+            baseURL: 'http://found-it-app.herokuapp.com/api',
             withCredentials: true
         })
     }
