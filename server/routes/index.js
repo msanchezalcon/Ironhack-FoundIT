@@ -6,6 +6,6 @@ module.exports = app => {
     app.use('/api/items', require('./item.routes'))
 
     app.use((req, res) => {
-        res.sendFile(__dirname + "/public/index.html")
+        res.sendFile(__dirname + "/public/index.html");
     })
 }
