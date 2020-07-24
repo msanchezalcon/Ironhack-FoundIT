@@ -16,7 +16,7 @@ const itemSchema = new Schema({
         default: 'other'
     },
     location: {
-        type: String,
+        type: { type: String },
         coordinates: [Number]
     },
     imageUrl: {

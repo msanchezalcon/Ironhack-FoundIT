@@ -12,13 +12,17 @@ const items = [
         name: 'glasses',
         description: 'red sunglasses',
         category: 'accessories',
-        foundBy: 'mir'
+        // foundBy: '5f181cf640c260e9dfa6f8d3',
+        imageUrl: 'dfegrhetjrky',
+        location: { type: 'Point', coordinates: [40.4, 40.7] }
     },
     {
         name: 'wallet',
         description: 'blue wallet',
         category: 'accessories',
-        foundBy: 'anders'
+        // foundBy: '5f181cf640c260e9dfa6f8d3',
+        imageUrl: 'dfegrhetjrky',
+        location: { type: 'Point', coordinates: [-3.6, -3.7] }
     }]
 
 
