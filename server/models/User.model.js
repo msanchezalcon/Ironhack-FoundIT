@@ -2,6 +2,7 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({ //añadir nombre e email perfil
+    name: String,
     username: {
         type: String,
         required: true
@@ -13,14 +14,14 @@ const userSchema = new Schema({ //añadir nombre e email perfil
     },
     avatar: {
         type: String,
-        default: ""
+        default: "https://cdn4.iconfinder.com/data/icons/political-elections/50/48-512.png"
     },
     role: {
         type: String,
         enum: ['USER', 'ADMIN'],
         default: 'USER'
-    },
-    foundItems: [{ type: Schema.Types.ObjectId, ref: "Item" }]
+    }
+    // foundItems: [{ type: Schema.Types.ObjectId, ref: "Item" }]
 }, {
     timestamps: true
 })

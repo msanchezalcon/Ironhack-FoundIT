@@ -1,0 +1,17 @@
+.details {
+    color: lightseagreen;
+    border-color: BlueViolet;
+    background-color: whitesmoke;
+}
+
+.details:hover {
+    color: lightseagreen;
+}
+
+.authProfile {
+    width: 25%;
+}
+
+.profileCol{
+
+}

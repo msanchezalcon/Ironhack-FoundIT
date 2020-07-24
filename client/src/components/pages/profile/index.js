@@ -7,9 +7,10 @@ import './profile.css'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Modal from 'react-bootstrap/Modal'
-import ItemCardProfile from './../items/Item-main/Item-card-profile'
+import ItemCardProfile from './../profile/Items-user/Item-card-profile'
 import Spinner from '../../ui/Spinner'
 import EditProfileForm from './EditProfileForm'
+import ItemsUser from './Items-user'
 
 
 class Profile extends Component {
@@ -61,19 +62,18 @@ class Profile extends Component {
             .catch(err => console.log(err))
     }
 
-    // TO DO create function for editing item
+    // // TO DO create function for editing item
+
+    // editItem = (id) => { // no funciona aun
+    //     this.appService.editItem(id)
+    //         .then(() => this.updateItemList())
+    //         .catch(err => console.log(err))
+    // }
 
 
 
 
-
-
-
-
-
-    //--------------------------------------------------------------------
-
-    //edit profile
+    //handle edit modal for profile
     handleModal = () => this.setState({ showModal: true })
     onHide = () => this.setState({ showModal: false })
 
@@ -84,7 +84,6 @@ class Profile extends Component {
 
 
 
-    //--------------------------------------------------------------------
 
     render() {
         console.log('profile page props', this.props)
@@ -115,11 +114,13 @@ class Profile extends Component {
                                 )}
                             </Row>
                     }
+
+                    {/* <ItemsUser /> */}
                 </div>
 
 
 
-
+                {/* Modal for editing user profile */}
                 <Modal size="lg" show={this.state.showModal} onHide={this.onHide} >
                     <Modal.Body>
                         <Row>
@@ -127,6 +128,9 @@ class Profile extends Component {
                         </Row>
                     </Modal.Body>
                 </Modal>
+
+
+
 
             </>
         )

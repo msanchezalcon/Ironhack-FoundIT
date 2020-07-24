@@ -30,7 +30,7 @@ class ItemDetails extends Component {
     }
 
     render() {
-        console.log('detail props', this.state.props)
+        console.log('detail props', this.state.itemDetails)
         return (
             <>
 
@@ -47,7 +47,7 @@ class ItemDetails extends Component {
                                     <br></br>
                                     <p><b>Category:</b> {this.state.itemDetails.category}</p>
                                     {/* <p><b>Location:</b> {this.state.itemDetails.location}</p> */}
-                                    <p><b>Found by:</b> {this.state.itemDetails.foundBy}</p>
+                                    <p><b>Found by:</b> {this.state.itemDetails.foundBy.username}</p>
                                     <hr></hr>
                                     <Link className="btn btn-light btn-block btn-sm details authDetail" to='/items/all'>Back to search</Link>
                                 </Col>

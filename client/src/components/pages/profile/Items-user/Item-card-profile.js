@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
-import './Item-list.css'
+import './items-user.css'
 import edit from './edit.svg'
 import trash from './trash.svg'
 import lupa from './lupa.svg'

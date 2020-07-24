@@ -70,11 +70,7 @@ class ItemList extends Component {
     //         .catch(err => console.log(err))
     // }
 
-    // editItem = (id) => { // no funciona aun
-    //     this.appService.editItem(id)
-    //         .then(() => this.updateItemList())
-    //         .catch(err => console.log(err))
-    // }
+  
 
     //--------------------------------------------------------------------
 
@@ -109,10 +105,14 @@ class ItemList extends Component {
 
                 <Modal size="lg" show={this.state.showModal} onHide={() => this.handleModal(false)}>
                     <Modal.Body>
-                        <Form {...this.props} handleItemSubmit={this.handleItemSubmit} />
+                        <ItemForm {...this.props} handleItemSubmit={this.handleItemSubmit} />
                     </Modal.Body>
                 </Modal>
+
+
+
             </>
+
         )
     }
 }

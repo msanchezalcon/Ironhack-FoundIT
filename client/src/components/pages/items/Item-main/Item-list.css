@@ -1,13 +1,13 @@
 .item-card {
     /* margin-bottom: 10px; */
-    height: 80%;
+    height: 90%;
     border-color: lightseagreen;
     color: SlateBlue;
     text-align: center;
 }
 
 .item-card img {
-    height: 180px;
+    height: 150px;
 }
 
 .details {
@@ -17,11 +17,18 @@
 
 .imgCards {
     width: 15px;
-    margin: 10%;
+    margin-right: 25px;
 }
 
 .addBtn {
     width: 20%;
     display: flex;
     margin: 20%;
+}
+
+
+.imgCardContainer{
+    display: flex;
+    margin-left: 20%;
+    align-content: space-between;
 }

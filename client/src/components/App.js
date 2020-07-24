@@ -15,6 +15,7 @@ import IndexPage from './pages/index'
 import ItemList from './../components/pages/items/Item-main'
 import ItemDetail from './../components/pages/items/Item-detail'
 import Profile from './pages/profile'
+import ItemsUser from './pages/profile/Items-user'
 
 
 class App extends Component {
@@ -67,6 +68,8 @@ class App extends Component {
                     <Route exact path="/items/:item_id" render={props => <ItemDetail {...props} />} />
 
                     <Route exact path="/user" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
+                    <Route exact path="/user" render={props => <ItemsUser {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
+
 
                     <Route exact path="/signup" render={props => <SignupForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
 
