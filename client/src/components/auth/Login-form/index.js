@@ -34,7 +34,7 @@ class LoginForm extends Component {
                 this.props.handleToast(true, 'You are logged in')
                 this.props.history.push('/items/all')
             })
-            .catch(err => console.log(err.response.data.message))   // Error handling yay!
+            .catch(err => console.log(err))   // Error handling yay!
     }
 
     render() {
