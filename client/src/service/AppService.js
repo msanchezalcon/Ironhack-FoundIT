@@ -6,7 +6,7 @@ export default class AppService {
 
         this.service = axios.create({
             // baseURL: 'http://localhost:5000/api',
-            baseURL: 'http://found-it-app.herokuapp.com/api',
+            baseURL: `${process.env.REACT_APP_API_URL}`,
             withCredentials: true
         })
     }
