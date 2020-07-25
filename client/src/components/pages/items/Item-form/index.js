@@ -7,13 +7,15 @@ import Button from 'react-bootstrap/Button'
 class ItemForm extends Component {
     constructor(props) {
         super(props)
+        const { itemEdit } = this.props
         this.state = {
-            name: '',
-            description: '',
-            category: '',
+            itemEdit: itemEdit ? itemEdit._id : "",
+            name: itemEdit ? itemEdit.name : "",
+            description: itemEdit ? itemEdit.description : "",
+            category: itemEdit ? itemEdit.category : "",
             // location: '',
-            // imageUrl: '',
-            foundBy: ''
+            imageUrl: itemEdit ? itemEdit.imageUrl : "",
+            foundBy: itemEdit ? itemEdit.foundBy : ""
         }
         this.appService = new AppService()
     }
@@ -30,28 +32,35 @@ class ItemForm extends Component {
     }
 
     handleInputChange = e => {
-        const { name, value } = e.target
-        this.setState({ [name]: value, foundBy: this.props.loggedInUser._id })
+        if (this.state.itemEdit) {
+            const { name, value } = e.target
+            this.setState({ [name]: value })
+        } else {
+            const { name, value } = e.target
+            this.setState({ [name]: value, foundBy: this.props.loggedInUser._id })
+        }
+
     }
+
 
     handleFormSubmit = e => {
         e.preventDefault()
-        this.appService.newItem(this.state)
-            .then(() => this.props.handleItemSubmit())
-            .catch(err => console.log(err))
+        if (this.state.itemEdit) {
+            this.appService.editItem(this.state.itemEdit, this.state)
+                .then(() => this.props.handleEditSubmit())
+                .catch(err => console.log(err))
+        } else {
+            this.appService.newItem(this.state)
+                .then(() => this.props.handleItemSubmit())
+                .catch(err => console.log(err))
+        }
+
     }
 
-
-    handleUpdateSubmit = e => {
-        e.preventDefault()
-        this.appService
-            .editItem(this.state)
-            .then(() => this.props.handleItemSubmit())
-            .catch(err => console.log(err))
-    }
 
     render() {
         console.log("FORM", this.props)
+        console.log("ID de ITEM", this.props.itemEdit)
         return (
             <>
                 {/* form for both creating and editing */}
@@ -79,10 +88,10 @@ class ItemForm extends Component {
                         <Form.Control onChange={this.handleInputChange} value={this.state.location} name="location" type="number" />
                     </Form.Group> */}
 
-                    {/* <Form.Group>
+                    <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Image (URL)</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
-                    </Form.Group> */}
+                    </Form.Group>
 
                     {/* <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Found by</Form.Label>

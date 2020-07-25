@@ -14,7 +14,7 @@ export default class AppService {
     getAllItems = () => this.service.get('/items/all')
     newItem = item => this.service.post('/items/new', item)
     getOneItem = id => this.service.get(`/items/${id}`)
-    editItem = id => this.service.post(`/items/${id}/edit`)
+    editItem = (id, data) => this.service.post(`/items/${id}/edit`, data)
     deleteItem = id => this.service.get(`/items/${id}/delete`)
     //traer owned items
 

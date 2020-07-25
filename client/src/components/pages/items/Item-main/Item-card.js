@@ -8,7 +8,7 @@ import './Item-list.css'
 import lupa from './lupa.svg'
 
 
-const ItemCard = ({ _id, name, imageUrl, deleteItem }) => {
+const ItemCard = ({ _id, name, imageUrl }) => {
 
     console.log('ID DE LA CARTA', _id)
 

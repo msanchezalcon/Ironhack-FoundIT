@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 
 import UserService from '../../../service/UserService'
 import AppService from '../../../service/AppService'
@@ -27,7 +26,6 @@ class Profile extends Component {
 
     }
 
-    //--------------------------------------------------------------------
     // gets all items from DB and updates list in profile
     componentDidMount = () => {
         if (this.props.loggedInUser) {
@@ -51,7 +49,6 @@ class Profile extends Component {
     }
 
 
-    //-----------------------------------------------------------------------
 
     deleteItem = (id) => {
         this.appService.deleteItem(id)
@@ -61,15 +58,6 @@ class Profile extends Component {
             })
             .catch(err => console.log(err))
     }
-
-    // // TO DO create function for editing item
-
-    // editItem = (id) => { // no funciona aun
-    //     this.appService.editItem(id)
-    //         .then(() => this.updateItemList())
-    //         .catch(err => console.log(err))
-    // }
-
 
 
 
@@ -86,9 +74,9 @@ class Profile extends Component {
 
 
     render() {
-        console.log('profile page props', this.props)
-        console.log('props de usuario en perfil', this.props.loggedInUser)
-        console.log('items en estado de perfil', this.state.items)
+        // console.log('profile page props', this.props)
+        // console.log('props de usuario en perfil', this.props.loggedInUser)
+        // console.log('items en estado de perfil', this.state.items)
 
         const id = this.props.loggedInUser ? this.props.loggedInUser._id : ""
         const name = this.props.loggedInUser ? this.props.loggedInUser.name : ""
@@ -107,15 +95,9 @@ class Profile extends Component {
                     <h4>These are your listed items:</h4>
                     <br></br>
 
-                    {
-                        !this.state.items ? <Spinner /> :
-                            <Row>
-                                {this.state.items.map(elm => <ItemCardProfile editItem={this.editItem} deleteItem={this.deleteItem} key={elm._id} {...elm} />
-                                )}
-                            </Row>
-                    }
 
-                    {/* <ItemsUser /> */}
+
+                    <ItemsUser loggedInUser={this.props} />
                 </div>
 
 

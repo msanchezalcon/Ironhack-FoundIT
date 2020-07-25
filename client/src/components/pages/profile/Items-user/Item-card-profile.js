@@ -9,9 +9,9 @@ import edit from './edit.svg'
 import trash from './trash.svg'
 import lupa from './lupa.svg'
 
-const ItemCardProfile = ({ _id, name, imageUrl, deleteItem, showUpdateModal }) => {
+const ItemCardProfile = ({ _id, name, imageUrl, deleteItem, handleModal }) => {
 
-    console.log('ID DE LA CARTA', _id)
+    // console.log('ID DE LA CARTA', _id)
 
     return (
 
@@ -22,7 +22,7 @@ const ItemCardProfile = ({ _id, name, imageUrl, deleteItem, showUpdateModal }) =
                     <Card.Title>{name}</Card.Title>
                     <div className="imgCardContainer">
                         <Link to={`/items/${_id}`}><img className="imgCards" src={lupa} alt="see more" /></Link>
-                        <Link to={`/items/${_id}/edit`} onClick={() => showUpdateModal(_id)} > <img className="imgCards" src={edit} alt="edit" /></Link>
+                        <div onClick={() => handleModal(true, _id)} > <img className="imgCards" src={edit} alt="edit" /></div>
                         <div onClick={() => deleteItem(_id)}><img className="imgCards" src={trash} alt="delete" /></div>
                     </div>
                 </Card.Body>

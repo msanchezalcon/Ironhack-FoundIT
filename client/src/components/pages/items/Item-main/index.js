@@ -50,9 +50,9 @@ class ItemList extends Component {
     handleModal = status => this.setState({ showModal: status })
 
 
-    showUpdateModal = (id) => {
-        this.setState({ showUpdateModal: true, selectedId: id })
-    }
+    // // showUpdateModal = (id) => {
+    // //     this.setState({ showUpdateModal: true, selectedId: id })
+    // // }
 
 
     handleItemSubmit = () => {
@@ -70,7 +70,7 @@ class ItemList extends Component {
     //         .catch(err => console.log(err))
     // }
 
-  
+
 
     //--------------------------------------------------------------------
 
@@ -103,7 +103,8 @@ class ItemList extends Component {
                     </Modal.Body>
                 </Modal> */}
 
-                <Modal size="lg" show={this.state.showModal} onHide={() => this.handleModal(false)}>
+                <Modal size="lg" show={this.state.showModal}
+                    onHide={() => this.handleModal(false)}>
                     <Modal.Body>
                         <ItemForm {...this.props} handleItemSubmit={this.handleItemSubmit} />
                     </Modal.Body>
