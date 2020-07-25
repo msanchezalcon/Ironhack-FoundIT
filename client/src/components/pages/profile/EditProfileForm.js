@@ -14,7 +14,8 @@ class EditProfileForm extends Component {
         this.state = {
             name: this.props.name,
             username: this.props.username,
-            avatar: this.props.avatar
+            avatar: this.props.avatar,
+            password: this.props.password
             //keep adding info from user
         }
         this.userService = new UserService()
@@ -58,6 +59,11 @@ class EditProfileForm extends Component {
                         <Form.Group>
                             <Form.Label style={{ color: 'SlateBlue' }}>Username</Form.Label>
                             <Form.Control onChange={this.handleInputChange} value={this.state.username} name="username" type="text" />
+                        </Form.Group>
+
+                        <Form.Group controlId="formGridPassword">
+                            <Form.Label style={{ color: 'SlateBlue' }}>Password</Form.Label>
+                            <Form.Control name="password" type="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange} />
                         </Form.Group>
 
                         <Form.Group>

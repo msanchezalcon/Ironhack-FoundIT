@@ -21,16 +21,6 @@ class ItemForm extends Component {
     }
 
 
-    // updateCurrentState = data => {
-    //     this.setState({
-    //         name: data.name || "",
-    //         category: data.category || "",
-    //         description: data.description || ""
-
-    //     })
-
-    // }
-
     handleInputChange = e => {
         if (this.state.itemEdit) {
             const { name, value } = e.target

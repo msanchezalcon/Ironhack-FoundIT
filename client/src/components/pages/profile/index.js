@@ -82,6 +82,7 @@ class Profile extends Component {
         const name = this.props.loggedInUser ? this.props.loggedInUser.name : ""
         const username = this.props.loggedInUser ? this.props.loggedInUser.username : ""
         const avatar = this.props.loggedInUser ? this.props.loggedInUser.avatar : ""
+        const password = this.props.loggedInUser ? this.props.loggedInUser.password : ""
 
         return (
             <>
@@ -106,7 +107,7 @@ class Profile extends Component {
                 <Modal size="lg" show={this.state.showModal} onHide={this.onHide} >
                     <Modal.Body>
                         <Row>
-                            {this.state.showModal ? <EditProfileForm id={id} name={name} username={username} avatar={avatar} closeModal={this.onHide} setTheUser={this.props.setTheUser} /> : null}
+                            {this.state.showModal ? <EditProfileForm id={id} name={name} username={username} password={password} avatar={avatar} closeModal={this.onHide} setTheUser={this.props.setTheUser} /> : null}
                         </Row>
                     </Modal.Body>
                 </Modal>
