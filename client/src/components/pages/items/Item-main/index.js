@@ -5,6 +5,8 @@ import ItemCard from './Item-card'
 import ItemForm from './../Item-form'
 import Spinner from '../../../ui/Spinner'
 import Form from './../Item-form/second-form'
+import CardFooter from './../../../ui/Footer'
+
 // import ProfilePage from '../../pages/profile'
 
 
@@ -109,7 +111,7 @@ class ItemList extends Component {
                         <ItemForm {...this.props} handleItemSubmit={this.handleItemSubmit} />
                     </Modal.Body>
                 </Modal>
-
+                <CardFooter />
 
 
             </>

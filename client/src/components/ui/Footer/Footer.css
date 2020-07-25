@@ -1,0 +1,18 @@
+.details {
+    color: lightseagreen;
+    border-color: BlueViolet;
+    background-color: whitesmoke;
+}
+
+.details:hover {
+    color: lightseagreen;
+}
+
+
+.footButton{
+    width: 15px;
+}
+
+.footInfo {
+    text-align: center;
+}

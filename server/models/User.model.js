@@ -21,7 +21,6 @@ const userSchema = new Schema({ //añadir nombre e email perfil
         enum: ['USER', 'ADMIN'],
         default: 'USER'
     }
-    // foundItems: [{ type: Schema.Types.ObjectId, ref: "Item" }]
 }, {
     timestamps: true
 })

@@ -32,7 +32,6 @@ class ItemsUser extends Component {
         }
     }
 
-
     updateItemList = () => {
         this.userService
             .getUserItems(this.state.id)
@@ -51,7 +50,6 @@ class ItemsUser extends Component {
             })
             .catch(err => console.log(err))
     }
-
 
     handleModal = (status, id_item) => {
         this.setState({ showModal: status, id_item: id_item })

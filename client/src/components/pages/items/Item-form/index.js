@@ -21,15 +21,15 @@ class ItemForm extends Component {
     }
 
 
-    updateCurrentState = data => {
-        this.setState({
-            name: data.name || "",
-            category: data.category || "",
-            description: data.description || ""
+    // updateCurrentState = data => {
+    //     this.setState({
+    //         name: data.name || "",
+    //         category: data.category || "",
+    //         description: data.description || ""
 
-        })
+    //     })
 
-    }
+    // }
 
     handleInputChange = e => {
         if (this.state.itemEdit) {
@@ -39,7 +39,6 @@ class ItemForm extends Component {
             const { name, value } = e.target
             this.setState({ [name]: value, foundBy: this.props.loggedInUser._id })
         }
-
     }
 
 
@@ -54,13 +53,12 @@ class ItemForm extends Component {
                 .then(() => this.props.handleItemSubmit())
                 .catch(err => console.log(err))
         }
-
     }
 
 
     render() {
-        console.log("FORM", this.props)
-        console.log("ID de ITEM", this.props.itemEdit)
+        // console.log("FORM", this.props)
+        // console.log("ID de ITEM", this.props.itemEdit)
         return (
             <>
                 {/* form for both creating and editing */}

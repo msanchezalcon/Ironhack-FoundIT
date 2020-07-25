@@ -6,7 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
-import Spinner from '../../../ui/Spinner'
+import CardFooter from './../../../ui/Footer'
+import Spinner from './../../../ui/Spinner'
 
 import './item-detail.css'
 
@@ -58,6 +59,7 @@ class ItemDetails extends Component {
                     }
 
                 </Container>
+                <CardFooter />
             </>
         )
     }
