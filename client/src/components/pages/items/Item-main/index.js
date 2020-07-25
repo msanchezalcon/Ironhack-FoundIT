@@ -4,11 +4,7 @@ import AppService from '../../../../service/AppService'
 import ItemCard from './Item-card'
 import ItemForm from './../Item-form'
 import Spinner from '../../../ui/Spinner'
-import Form from './../Item-form/second-form'
 import CardFooter from './../../../ui/Footer'
-
-// import ProfilePage from '../../pages/profile'
-
 
 import './Item-list.css'
 
@@ -16,7 +12,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import add from './add.svg'
 import app from './app.svg'
 
 
@@ -34,8 +29,7 @@ class ItemList extends Component {
         }
         this.appService = new AppService()
     }
-    //--------------------------------------------------------------------
-    //Gets all items in general search view
+
     componentDidMount = () => this.updateItemList()
 
     updateItemList = () => {
@@ -48,13 +42,7 @@ class ItemList extends Component {
             .catch(err => console.log(err))
     }
 
-    //--------------------------------------------------------------------
     handleModal = status => this.setState({ showModal: status })
-
-
-    // // showUpdateModal = (id) => {
-    // //     this.setState({ showUpdateModal: true, selectedId: id })
-    // // }
 
 
     handleItemSubmit = () => {
@@ -62,19 +50,6 @@ class ItemList extends Component {
         this.updateItemList()
     }
 
-    //--------------------------------------------------------------------
-    // deleteItem = (id) => {
-    //     this.appService.deleteItem(id)
-    //         .then(response => {
-    //             const updateItem = this.state.items.filter(item => item._id !== id)
-    //             this.setState({ items: updateItem })
-    //         })
-    //         .catch(err => console.log(err))
-    // }
-
-
-
-    //--------------------------------------------------------------------
 
 
 
@@ -83,7 +58,6 @@ class ItemList extends Component {
         return (
             <>
 
-                {/* shows each individual item in general search view and allows creating new one with button*/}
                 <Container as="main" className="items-page">
                     {
                         this.props.loggedInUser && <div className='container'> <Button variant="link" onClick={() => this.handleModal(true)}><img className="addBtn" src={app} alt="add" /></Button></div>
@@ -98,21 +72,14 @@ class ItemList extends Component {
 
 
 
-                {/* handles submission of modal for creating new item */}
-                {/* <Modal size="lg" show={this.state.showModal} onHide={() => this.handleModal(false)}>
-                    <Modal.Body>
-                        <ItemForm {...this.props} handleItemSubmit={this.handleItemSubmit} />
-                    </Modal.Body>
-                </Modal> */}
-
                 <Modal size="lg" show={this.state.showModal}
                     onHide={() => this.handleModal(false)}>
                     <Modal.Body>
                         <ItemForm {...this.props} handleItemSubmit={this.handleItemSubmit} />
                     </Modal.Body>
                 </Modal>
-                <CardFooter />
 
+                <CardFooter />
 
             </>
 

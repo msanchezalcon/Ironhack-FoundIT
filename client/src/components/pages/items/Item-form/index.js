@@ -14,7 +14,7 @@ class ItemForm extends Component {
             description: itemEdit ? itemEdit.description : "",
             category: itemEdit ? itemEdit.category : "",
             // location: '',
-            imageUrl: itemEdit ? itemEdit.imageUrl : "",
+            imageUrl: itemEdit ? itemEdit.imageUrl : "https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg",
             foundBy: itemEdit ? itemEdit.foundBy : ""
         }
         this.appService = new AppService()
@@ -68,28 +68,41 @@ class ItemForm extends Component {
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Name</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.name} name="name" type="text" />
-                        <Form.Text className="text-muted">The devil is in the details ;)</Form.Text>
+                        <Form.Text className="text-muted">Don't be too generic. The devil is in the details ;)</Form.Text>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Description</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.description} name="description" type="text" />
+                        <Form.Text className="text-muted">Color, size, brand, condition... be specific!</Form.Text>
                     </Form.Group>
 
-                    <Form.Group>
-                        <Form.Label style={{ color: 'SlateBlue' }}>Category</Form.Label>
-                        <Form.Control onChange={this.handleInputChange} value={this.state.category} name="category" type="text" />
-                    </Form.Group>
 
                     {/* <Form.Group>
                         <Form.Label>Location</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.location} name="location" type="number" />
                     </Form.Group> */}
 
+                    <Form.Group controlId="exampleForm.ControlSelect2">
+                        <Form.Label style={{ color: 'SlateBlue' }}>Category</Form.Label>
+                        <Form.Control as="select" multiple onChange={this.handleInputChange} value={this.state.category} name="category" type="text">
+                            <option>books</option>
+                            <option>clothes</option>
+                            <option>electronics</option>
+                            <option>accessories</option>
+                            <option>other</option>
+                        </Form.Control>
+                    </Form.Group>
+
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Image (URL)</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
                     </Form.Group>
+
+                    {/* <Form.Group>
+                        <Form.File onChange={this.handleInputChange} id="exampleFormControlFile1" label="Image" name="imageUrl" type="text" />
+                    </Form.Group> */}
+
 
                     {/* <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Found by</Form.Label>

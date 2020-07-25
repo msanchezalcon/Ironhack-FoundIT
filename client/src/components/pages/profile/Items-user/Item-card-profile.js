@@ -21,7 +21,7 @@ const ItemCardProfile = ({ _id, name, imageUrl, deleteItem, handleModal }) => {
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <div className="imgCardContainer">
-                        <Link to={`/items/${_id}`}><img className="imgCards" src={lupa} alt="see more" /></Link>
+                        {/* <Link to={`/items/${_id}`}><img className="imgCards" src={lupa} alt="see more" /></Link> */}
                         <div onClick={() => handleModal(true, _id)} > <img className="imgCards" src={edit} alt="edit" /></div>
                         <div onClick={() => deleteItem(_id)}><img className="imgCards" src={trash} alt="delete" /></div>
                     </div>
