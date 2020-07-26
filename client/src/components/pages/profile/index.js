@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import UserService from '../../../service/UserService'
 import AppService from '../../../service/AppService'
+
 import './profile.css'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'

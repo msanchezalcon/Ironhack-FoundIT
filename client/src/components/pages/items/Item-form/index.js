@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import AppService from '../../../../service/AppService'
+import FilesService from '../../../../service/FilesService'
+
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -14,10 +16,12 @@ class ItemForm extends Component {
             description: itemEdit ? itemEdit.description : "",
             category: itemEdit ? itemEdit.category : "",
             // location: '',
-            imageUrl: itemEdit ? itemEdit.imageUrl : "https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg",
+            imageUrl: itemEdit ? itemEdit.imageUrl : "",
             foundBy: itemEdit ? itemEdit.foundBy : ""
         }
         this.appService = new AppService()
+        this.filesService = new FilesService()    // CLOUDINARYCONFIG  
+
     }
 
 
@@ -31,6 +35,18 @@ class ItemForm extends Component {
         }
     }
 
+    // CLOUDINARYCONFIG  
+    handleFileUpload = e => {
+        const uploadData = new FormData()
+        uploadData.append("imageUrl", e.target.files[0])
+
+        this.filesService.handleUpload(uploadData)
+            .then(response => {
+                console.log('Subida de archivo finalizada! La URL de Cloudinray es: ', response.data.secure_url)
+                this.setState({ imageUrl: response.data.secure_url })
+            })
+            .catch(err => console.log(err))
+    }
 
     handleFormSubmit = e => {
         e.preventDefault()
@@ -84,9 +100,15 @@ class ItemForm extends Component {
                         </Form.Control>
                     </Form.Group>
 
-                    <Form.Group>
+                    {/* <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Image (URL)</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
+                    </Form.Group> */}
+
+                    {/* // CLOUDINARYCONFIG   */}
+                    <Form.Group>
+                        <Form.Label>Image (folder)</Form.Label>
+                        <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
                     </Form.Group>
 
                     {/* <Form.Group>

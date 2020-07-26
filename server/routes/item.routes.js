@@ -46,7 +46,7 @@ router.post('/:item_id/edit', ensureLoggedIn(), (req, res, next) => {
     const tempCat = category || req.user.category
     const tempLoc = location || req.user.location
     const tempDesc = description || req.user.description
-    const tempImg = imageUrl || req.user.imageUrl
+    const tempImg = req.file ? req.file.url : req.user.imageUrl
     const tempFound = foundBy || req.user.foundBy
 
     Item.findByIdAndUpdate(req.params.item_id, { name: tempName, description: tempDesc, category: tempCat, location: tempLoc, imageUrl: tempImg, foundBy: tempFound })

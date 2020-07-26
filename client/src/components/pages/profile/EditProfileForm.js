@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
 import UserService from '../../../service/UserService'
+import FilesService from '../../../service/FilesService'
+
 import './profile.css'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -16,9 +18,9 @@ class EditProfileForm extends Component {
             username: this.props.username,
             avatar: this.props.avatar,
             password: this.props.password
-            //keep adding info from user
         }
         this.userService = new UserService()
+        this.filesService = new FilesService()
     }
 
     handleInputChange = e => {
@@ -33,13 +35,23 @@ class EditProfileForm extends Component {
             .editUser(this.props.id, this.state)
             .then(response => {
                 this.props.setTheUser(response.data)
-                // this.props.history.push('/user')
-                // this.handleItemSubmit()
                 this.props.closeModal()
             })
             .catch(err => console.log(err))
     }
 
+    // CLOUDINARYCONFIG  
+    handleFileUpload = e => {
+        const uploadData = new FormData()
+        uploadData.append("imageUrl", e.target.files[0])
+
+        this.filesService.handleUpload(uploadData)
+            .then(response => {
+                console.log('File upload successful! Cloudinary URL is: ', response.data.secure_url)
+                this.setState({ avatar: response.data.secure_url })
+            })
+            .catch(err => console.log(err))
+    }
 
     render() {
         console.log("set the user in profile form", this.props.setTheUser)
@@ -66,9 +78,14 @@ class EditProfileForm extends Component {
                             <Form.Control name="password" type="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange} />
                         </Form.Group>
 
-                        <Form.Group>
+                        {/* <Form.Group>
                             <Form.Label style={{ color: 'SlateBlue' }}>Avatar</Form.Label>
                             <Form.Control onChange={this.handleInputChange} value={this.state.avatar} name="avatar" type="text" />
+                        </Form.Group> */}
+
+                        <Form.Group>
+                            <Form.Label style={{ color: 'SlateBlue' }}>Avatar</Form.Label>
+                            <Form.Control name="avatar" type="file" onChange={this.handleFileUpload} />
                         </Form.Group>
 
                         <Button type="submit" className="btn btn-light btn-block btn-sm details auth">Submit</Button>
