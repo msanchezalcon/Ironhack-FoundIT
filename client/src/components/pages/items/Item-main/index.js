@@ -13,7 +13,8 @@ import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import app from './app.svg'
-import MapContainer from './../../../maps/map'
+// import MapContainer from './../../../maps/map'
+import MapApp from './../../../maps/map'
 
 
 
@@ -59,7 +60,8 @@ class ItemList extends Component {
         return (
             <>
                 <Container className="mapMain">
-                    <MapContainer />
+                    {/* <MapContainer /> */}
+                    <MapApp />
                 </Container>
 
                 <Container as="main" className="items-page">

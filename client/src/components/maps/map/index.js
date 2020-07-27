@@ -1,89 +1,56 @@
-import React, { Component } from 'react'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
+import React from 'react'
+import { GoogleMap, withScriptjs, Marker, withGoogleMap } from "react-google-maps"
+
+const mapsApiKey = `${process.env.REACT_APP_MAPS_KEYS}`
 
 
-const mapsApiKey = `${process.env.REACT_APP_MAPS_KEY}` //aaaaaaaaa
-
-const containerStyle = {
-    position: 'fixed',
-    width: '85%',
-    height: '25%'
-}
-
-export class MapContainer extends Component {
+class Map extends React.Component {
     state = {
-        showingInfoWindow: false,
-        activeMarker: {},
-        selectedPlace: {},
+        points: this.props.markers // all markers in a google-map-react?
     }
-
-    onMarkerClick = (props, marker, e) =>
-        this.setState({
-            selectedPlace: props,
-            activeMarker: marker,
-            showingInfoWindow: true
-        })
-
-    onMapClicked = (props) => {
-        if (this.state.showingInfoWindow) {
-            this.setState({
-                showingInfoWindow: false,
-                activeMarker: null
-            })
-        }
-    }
-
     render() {
         return (
-            <Map google={this.props.google} zoom={14} containerStyle={containerStyle} initialCenter={{
-                lat: 57.7089,
-                lng: 11.9746
-            }} onClick={this.onMapClicked}>
-
-
-                <Marker onClick={this.onMarkerClick}
-                    title={'Gbg Central Station'}
-                    name={'Central Station'}
-                    position={{ lat: 57.7086, lng: 11.9733 }} />
-
-                <InfoWindow onClose={this.onInfoWindowClose} marker={this.state.activeMarker}
-                    visible={this.state.showingInfoWindow}>
-                    <div>
-                        <h1>hello</h1>
-                    </div>
-                </InfoWindow>
-            </Map>
-        );
+            <GoogleMap defaultZoom={10} defaultCenter={{ lat: 57.7089, lng: 11.9746 }} >
+                {this.state.points.map(point => <Marker position={{ lat: point.lat, lng: point.lng }} />)}
+            </GoogleMap>
+        )
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: ('AIzaSyBQ7FuyGF1dPI9rhNPPc6-ZFTTiRylkxGM')
-})(MapContainer)
 
 
 
-// class Map extends React.Component {
-//     state = {
-//         points: this.props.markers
-//     }
+const WrappedMap = withScriptjs(withGoogleMap(Map))
 
-//     render() {
-//         return (
-//             <GoogleMap defaultCenter={this.props.defaultCenter} defaultZoom={this.props.defaultZoom}>
-//                 <Polyline
-//                     path={this.state.points}
-//                     geodesic={true}
-//                     options={{
-//                         strokeColor: "#ff2527",
-//                         strokeOpacity: 0.75,
-//                         strokeWeight: 2
-//                     }}
-//                 />
-//                 {this.state.points.map(point => <Marker position={{ lat: point.lat, lng: point.lng }} />)}
-//             </GoogleMap>
-//         )
-//     }
-// }
+export default function MapApp(props) { //need to learn about this props
+    const initialPoints = props.items.map(item => item.location.coordinates)
+    const waypoints = initialPoints.map(p => ({ lat: parseFloat(p[0]), lng: parseFloat(p[1]) }))
+    let lat = props.centerLoc.lat
+    let lng = props.centerLoc.lng
 
-// export default withScriptjs(withGoogleMap(Map))
+    const {
+        loadingElement,
+        containerElement,
+        mapElement,
+        defaultCenter,
+        defaultZoom
+    } = props
+
+    return (
+        <div style={{ width: "100vw", height: "25vh" }}>
+            <WrappedMap
+                googleMapURL={
+                    'https://maps.googleapis.com/maps/api/js?key=' + mapsApiKey + 'AIzaSyBdBT0F-Qk9YpUy1xEu2Wn2QD7fomLUuuM&libraries=geometry,drawing,places'
+                }
+                loadingElement={loadingElement || <div style={{ height: "100%" }} />}
+                containerElement={containerElement || <div style={{ height: "100%" }} />}
+                mapElement={mapElement || <div style={{ height: "100%" }} />}
+                defaultCenter={defaultCenter || { lat: lat, lng: lng }}
+                defaultZoom={defaultZoom || 20}
+                markers={waypoints}
+            />
+        </div>
+
+    )
+
+}

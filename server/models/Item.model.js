@@ -18,6 +18,7 @@ const itemSchema = new Schema({
     location: {
         type: { type: String },
         coordinates: [Number]
+
     },
     imageUrl: {
         type: String,
