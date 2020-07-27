@@ -48,7 +48,10 @@ class EditProfileForm extends Component {
         this.filesService.handleUpload(uploadData)
             .then(response => {
                 console.log('File upload successful! Cloudinary URL for avatar is: ', response.data.secure_url)
-                this.setState({ avatar: response.data.secure_url })
+                console.log('response data', response.data)
+                // this.props.setTheUser({ avatar: response.data.secure_url })
+                this.props.setTheUser(response.data.avatar)
+
             })
             .catch(err => console.log(err))
     }

@@ -13,6 +13,7 @@ import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import app from './app.svg'
+import MapContainer from './../../../maps/map'
 
 
 
@@ -57,8 +58,13 @@ class ItemList extends Component {
     render() {
         return (
             <>
+                <Container className="mapMain">
+                    <MapContainer />
+                </Container>
 
                 <Container as="main" className="items-page">
+
+
                     {
                         this.props.loggedInUser && <div className='container'> <Button variant="link" onClick={() => this.handleModal(true)}><img className="addBtn" src={app} alt="add" /></Button></div>
                     }
@@ -69,6 +75,7 @@ class ItemList extends Component {
                             </Row>
                     }
                 </Container>
+
 
 
 

@@ -10,21 +10,36 @@ const Item = require('../models/Item.model')
 const items = [
     {
         name: 'glasses',
-        description: 'red sunglasses',
+        description: 'red sunglasses brand rayban',
         category: 'accessories',
-        // foundBy: '5f181cf640c260e9dfa6f8d3',
-        imageUrl: 'dfegrhetjrky',
-        location: { type: 'Point', coordinates: [40.4, 40.7] }
+        foundBy: '5f181cf640c260e9dfa6f8d3',
+        imageUrl: 'https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg',
+        location: { type: 'Point', coordinates: [57.7086, 11.9733] }
     },
     {
         name: 'wallet',
-        description: 'blue wallet',
+        description: 'woman blue wallet brand zara',
         category: 'accessories',
-        // foundBy: '5f181cf640c260e9dfa6f8d3',
-        imageUrl: 'dfegrhetjrky',
-        location: { type: 'Point', coordinates: [-3.6, -3.7] }
+        foundBy: '5f181cf640c260e9dfa6f8d3',
+        imageUrl: 'https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg',
+        location: { type: 'Point', coordinates: [57.6830, 11.9503] }
+    },
+    {
+        name: 'women nike sneakers',
+        description: 'size 39 red and blue stripes',
+        category: 'clothes',
+        foundBy: '5f181cf640c260e9dfa6f8d3',
+        imageUrl: 'https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg',
+        location: { type: 'Point', coordinates: [57.7087, 11.9691] }
+    },
+    {
+        name: 'ipad 3',
+        description: 'golden case, year 2016',
+        category: 'electronics',
+        foundBy: '5f1c84e262c9e305ba9f187f',
+        imageUrl: 'https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg',
+        location: { type: 'Point', coordinates: [57.70111, 11.95778] }
     }]
-
 
 
 // Seed
