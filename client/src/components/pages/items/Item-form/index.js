@@ -42,7 +42,7 @@ class ItemForm extends Component {
 
         this.filesService.handleUpload(uploadData)
             .then(response => {
-                console.log('Subida de archivo finalizada! La URL de Cloudinray es: ', response.data.secure_url)
+                console.log('File upload successful! Cloudinary URL for item: ', response.data.secure_url)
                 this.setState({ imageUrl: response.data.secure_url })
             })
             .catch(err => console.log(err))
@@ -107,7 +107,7 @@ class ItemForm extends Component {
 
                     {/* // CLOUDINARYCONFIG   */}
                     <Form.Group>
-                        <Form.Label>Image (folder)</Form.Label>
+                        <Form.Label>Image</Form.Label>
                         <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
                     </Form.Group>
 

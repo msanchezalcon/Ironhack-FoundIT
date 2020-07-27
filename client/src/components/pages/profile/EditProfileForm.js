@@ -43,11 +43,11 @@ class EditProfileForm extends Component {
     // CLOUDINARYCONFIG  
     handleFileUpload = e => {
         const uploadData = new FormData()
-        uploadData.append("imageUrl", e.target.files[0])
+        uploadData.append("avatar", e.target.files[0])
 
         this.filesService.handleUpload(uploadData)
             .then(response => {
-                console.log('File upload successful! Cloudinary URL is: ', response.data.secure_url)
+                console.log('File upload successful! Cloudinary URL for avatar is: ', response.data.secure_url)
                 this.setState({ avatar: response.data.secure_url })
             })
             .catch(err => console.log(err))

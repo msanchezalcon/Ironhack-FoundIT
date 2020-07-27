@@ -12,7 +12,7 @@ const CardFooter = () => {
         <Card className="footInfo" border-top="info" style={{ position: 'fixed', right: '0px', bottom: '0px', width: '100%', color: 'lightseagreen' }}>
             <Card.Body>
                 <Card.Text>
-                    <p>Can't find what you are looking for?</p>
+                    Can't find what you are looking for?
                 </Card.Text>
                 <Link to={lostFound} className="btn btn-light  btn-sm details auth footButton" variant="light">Browse the web</Link>
             </Card.Body>
