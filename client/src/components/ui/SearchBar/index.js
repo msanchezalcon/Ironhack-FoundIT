@@ -20,9 +20,11 @@ class SearchBar extends Component {
         return (
             <>
 
-                <div className="md-form active-purple active-purple-2 mb-3 searchBox">
+                <div className="active-cyan-3 active-cyan-4 mb-4 searchBox">
                     <input class="form-control" name="name" type="text" value={this.state.name} onChange={this.handleInputChange} placeholder="Search lost item..." aria-label="Search" />
                 </div>
+
+
 
             </>
         )

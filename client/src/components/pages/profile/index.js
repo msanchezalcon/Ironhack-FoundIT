@@ -11,6 +11,7 @@ import ItemCardProfile from './../profile/Items-user/Item-card-profile'
 import Spinner from '../../ui/Spinner'
 import EditProfileForm from './EditProfileForm'
 import ItemsUser from './Items-user'
+import Card from 'react-bootstrap/Card'
 
 
 class Profile extends Component {
@@ -89,9 +90,12 @@ class Profile extends Component {
             <>
 
                 <div className="container">
-                    <h2> Hi, {this.props.loggedInUser.name}!</h2>
-                    <p><img className="avatarUser" src={this.props.loggedInUser.avatar} alt="user avatar" /></p>
-                    <Button className="btn btn-light btn-block btn-sm details auth" onClick={() => this.handleModal(true)}>Edit profile</Button>
+                    <Card className="card border-0">
+                        <h2> Hi, {this.props.loggedInUser.name}!</h2>
+                        <p><img className="avatarUser" src={this.props.loggedInUser.avatar} alt="user avatar" /></p>
+                        <Button className="btn btn-light btn-block btn-sm details auth profileBtn" onClick={() => this.handleModal(true)}>Edit profile</Button>
+                    </Card>
+
                     <hr></hr>
                     <br></br>
                     <h4>These are your listed items:</h4>

@@ -1,5 +1,9 @@
 .avatarUser {
     width: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
 }
 
 .details {
@@ -16,6 +20,19 @@
     width: 25%;
 }
 
-.profileCol{
 
+h4 {
+    text-align: center;
+} 
+
+h2 {
+    text-align: center;
 }
+
+.profileBtn {
+    width: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+} 
+

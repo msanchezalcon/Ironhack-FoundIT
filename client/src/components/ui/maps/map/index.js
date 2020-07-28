@@ -34,6 +34,7 @@ export default function MapApp(props) {
         markers
     } = props
 
+
     console.log(props)
 
     const initialPoints = markers ? markers.map(item => item.location.coordinates) : []
@@ -42,10 +43,10 @@ export default function MapApp(props) {
     let lng = -3.7037901999999576//props.centerLoc.lng
     return (
         <>
-            <div style={{ width: "100vw", height: "25vh" }}>
+            <div style={{ width: "100vw", height: "40vh" }}>
                 <WrappedMap
                     googleMapURL={
-                        `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_MAPS_KEYS}&v=3.exp&libraries=geometry,drawing,places`
+                        `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`
                     }
                     loadingElement={loadingElement || <div style={{ height: "100%" }} />}
                     containerElement={containerElement || <div style={{ height: "100%" }} />}

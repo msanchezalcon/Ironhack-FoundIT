@@ -10,9 +10,21 @@
 
 
 .footButton{
-    width: 15px;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    margin-top: 10px;
 }
 
 .footInfo {
+    text-align: center;
+}
+
+
+
+.cardText {
+    margin: 0;
     text-align: center;
 }

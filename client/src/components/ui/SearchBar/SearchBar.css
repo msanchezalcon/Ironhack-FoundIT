@@ -1,8 +1,18 @@
-.active-purple-2 input.form-control[type=text]:focus:not([readonly]) {
-  border-bottom: 1px solid #ce93d8;
-  box-shadow: 0 1px 0 0 #ce93d8;
+.active-cyan-4 input[type=text]:focus:not([readonly]) {
+  border: 1px solid #4dd0e1;
+  box-shadow: 0 0 0 1px #4dd0e1;
+}
+.active-cyan-3 input[type=text] {
+  border: 1px solid #4dd0e1;
+  box-shadow: 0 0 0 1px #4dd0e1;
 }
 
 .searchBox {
     width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5%;
 }
+
