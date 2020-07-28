@@ -32,7 +32,6 @@ class ItemList extends Component {
 
         }
         this.appService = new AppService()
-        this.copyItems = [...this.state.items]
 
     }
 
@@ -59,8 +58,6 @@ class ItemList extends Component {
     filterItem = nameSearched => {
         console.log(nameSearched)
         let copyItem = this.state.items.filter(items => items.name.toLowerCase().includes(nameSearched))
-        //console.log(copyProduct)
-
         this.setState({ filteredItems: copyItem, nameSearched })
     }
 
@@ -69,20 +66,18 @@ class ItemList extends Component {
     render() {
         console.log("ENVIAR A MAP", this.state.items)
         console.log('this state items', this.state.items)
+
         return (
             <>
                 <Container className="searchMap">
-                    {/* <SearchLocationInput onChange={() => null} /> */}
                     <SearchBar filterItem={this.filterItem} />
                 </Container>
 
 
-
                 <Container className="mapMain">
-
-                    <MapApp items={this.state.items} />
-
+                    <MapApp markers={this.state.items} />
                 </Container>
+
 
                 <Container as="main" className="items-page">
 
