@@ -79,8 +79,9 @@ class ItemList extends Component {
 
 
                 <Container className="mapMain">
-                    {/* <MapContainer /> */}
-                    <MapApp markers={this.state.items} />
+
+                    <MapApp items={this.state.items} />
+
                 </Container>
 
                 <Container as="main" className="items-page">
