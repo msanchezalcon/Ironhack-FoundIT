@@ -57,11 +57,12 @@ class ItemList extends Component {
 
 
     render() {
+        console.log("ENVIAR A MAP", this.state.items)
         return (
             <>
                 <Container className="mapMain">
                     {/* <MapContainer /> */}
-                    <MapApp />
+                    <MapApp markers={this.state.items} />
                 </Container>
 
                 <Container as="main" className="items-page">

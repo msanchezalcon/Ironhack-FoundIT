@@ -9,10 +9,12 @@ class Map extends React.Component {
         points: this.props.markers // all markers in a google-map-react?
     }
     render() {
+        console.log("MAP", this.state.points)
         return (
-            <GoogleMap defaultZoom={10} defaultCenter={{ lat: 57.7089, lng: 11.9746 }} >
-                {this.state.points.map(point => <Marker position={{ lat: point.lat, lng: point.lng }} />)}
-            </GoogleMap>
+            <></>
+            // <GoogleMap defaultZoom={10} defaultCenter={{ lat: 57.7089, lng: 11.9746 }} >
+            //     {this.state.points.map(point => <Marker position={{ lat: point.lat, lng: point.lng }} />)}
+            // </GoogleMap>
         )
     }
 }
@@ -23,20 +25,26 @@ class Map extends React.Component {
 const WrappedMap = withScriptjs(withGoogleMap(Map))
 
 export default function MapApp(props) { //need to learn about this props
-    const initialPoints = props.items.map(item => item.location.coordinates)
-    const waypoints = initialPoints.map(p => ({ lat: parseFloat(p[0]), lng: parseFloat(p[1]) }))
-    let lat = props.centerLoc.lat
-    let lng = props.centerLoc.lng
+
 
     const {
         loadingElement,
         containerElement,
         mapElement,
         defaultCenter,
-        defaultZoom
+        defaultZoom,
+        markers
     } = props
+    // if (props) { console.log('props map app', props.markers) }
 
+    const initialPoints = props.markers.map(item => {
+        item.location.coordinates
+    })
+    const waypoints = initialPoints.map(p => ({ lat: parseFloat(p[0]), lng: parseFloat(p[1]) }))
+    let lat = props.centerLoc.lat
+    let lng = props.centerLoc.lng
     return (
+
         <div style={{ width: "100vw", height: "25vh" }}>
             <WrappedMap
                 googleMapURL={
