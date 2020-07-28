@@ -5,8 +5,8 @@ import ItemCard from './Item-card'
 import ItemForm from './../Item-form'
 import Spinner from '../../../ui/Spinner'
 import CardFooter from './../../../ui/Footer'
+import SearchBar from './../../../ui/SearchBar'
 
-import './Item-list.css'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -15,6 +15,8 @@ import Modal from 'react-bootstrap/Modal'
 import app from './app.svg'
 // import MapContainer from './../../../maps/map'
 import MapApp from './../../../maps/map'
+import SearchLocationInput from './../../../maps/places/SearchLocationInput'
+
 
 
 
@@ -30,6 +32,8 @@ class ItemList extends Component {
 
         }
         this.appService = new AppService()
+        // this.originalItems = [...this.state.items]
+
     }
 
     componentDidMount = () => this.updateItemList()
@@ -52,14 +56,27 @@ class ItemList extends Component {
         this.updateItemList()
     }
 
-
+    filterItem = nameSearched => {
+        console.log(nameSearched)
+        // let copyItem = [...this.state.items]
+        // console.log(copyItem)
+        let copyItem = this.state.items.filter(items => items.name.toLowerCase().includes(nameSearched))
+        //console.log(copyProduct)
+        this.setState({ items: copyItem })
+    }
 
 
 
     render() {
         console.log("ENVIAR A MAP", this.state.items)
+        console.log('this state items', this.state.items)
         return (
             <>
+                <Container className="searchMap">
+                    {/* <SearchLocationInput onChange={() => null} /> */}
+                    <SearchBar filterItem={this.filterItem} />
+                </Container>
+
                 <Container className="mapMain">
                     {/* <MapContainer /> */}
                     <MapApp markers={this.state.items} />
