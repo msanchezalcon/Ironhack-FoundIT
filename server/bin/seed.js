@@ -3,7 +3,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 //must have connection string since it doesn't process env file
-mongoose.connect('mongodb+srv://msanchezalcon:MsaMsa1@@cluster0.q8yv1.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(`${process.env.DB_REMOTE}`, { useNewUrlParser: true, useUnifiedTopology: true })
 
 //Model
 const Item = require('../models/Item.model')
