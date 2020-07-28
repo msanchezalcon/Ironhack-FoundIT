@@ -3,7 +3,7 @@ import { GoogleMap, withScriptjs, Marker, withGoogleMap } from "react-google-map
 import mapStyles from './mapStyles'
 
 const mapsApiKey = `${process.env.REACT_APP_MAPS_KEYS}`
-console.log('api key', process.env)
+// console.log('api key', process.env)
 
 
 class Map extends React.Component {

@@ -22,7 +22,7 @@ class SearchBar extends Component {
                 {/* <form> */}
                 {/* <input name="name" type="text" value={this.state.name} onChange={this.handleInputChange}></input> */}
                 <div className="md-form active-purple active-purple-2 mb-3 searchBox">
-                    <input class="form-control" name="name" type="text" value={this.state.name} onChange={this.handleInputChange} placeholder="Search item" aria-label="Search" />
+                    <input class="form-control" name="name" type="text" value={this.state.name} onChange={this.handleInputChange} placeholder="Search lost item" aria-label="Search" />
                 </div>
                 {/* </form> */}
             </>
