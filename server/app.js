@@ -10,6 +10,7 @@ require('./configs/debugger.config')
 const express = require('express')
 const app = express()
 
+
 // Configs
 require('./configs/preformatter.config')(app)
 require('./configs/passport.config')(app)
@@ -20,7 +21,5 @@ require('./configs/locals.config')(app)
 // Routes index
 require('./routes')(app)
 
-// app.use((req, res) => {
-//     res.sendFile(__dirname + "/public/index.html")
-// })
+
 module.exports = app

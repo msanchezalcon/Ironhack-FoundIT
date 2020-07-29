@@ -118,7 +118,6 @@ router.get('/loggedin', ensureLoggedIn(), (req, res, next) => {
 
 
 
-
 // USER ROUTES
 
 router.get("/users", ensureLoggedIn(), (req, res, next) => {

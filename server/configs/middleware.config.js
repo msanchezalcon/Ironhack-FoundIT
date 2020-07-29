@@ -4,7 +4,7 @@ const logger = require('morgan')
 
 const cors = require('cors')
 
-const whitelist = ['http://localhost:3000', 'https://found-it-app.herokuapp.com/', 'http://localhost:5001']
+const whitelist = ['http://localhost:3000', 'https://found-it-app.herokuapp.com/', 'http://localhost:5001', 'http://localhost:5000', 'http://localhost:5002']
 const corsOptions = {
     origin: (origin, cb) => {
         const originIsWhitelisted = whitelist.includes(origin)

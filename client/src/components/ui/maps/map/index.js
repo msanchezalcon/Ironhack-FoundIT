@@ -102,8 +102,7 @@ export default function MapApp(props) {
             <div style={{ width: "100vw", height: "40vh" }}>
                 <WrappedMap
                     googleMapURL={
-                        `https://maps.googleapis.com/maps/api/js?key=
-                        &v=3.exp&libraries=geometry,drawing,places`
+                        `https://maps.googleapis.com/maps/api/js?key=AIzaSyA8O--GDLv_W7ar5KhqUzBsDayxtffbZso&v=3.exp&libraries=geometry,drawing,places`
                     }
                     loadingElement={loadingElement || <div style={{ height: "100%" }} />}
                     containerElement={containerElement || <div style={{ height: "100%" }} />}
