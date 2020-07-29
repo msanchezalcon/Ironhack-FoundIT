@@ -60,16 +60,15 @@ class App extends Component {
 
                     <Route exact path="/" render={() => <IndexPage />} />
 
-                    <Route exact path="/user" render={() => <ChatComponent />} />
+                    <Route exact path="/chat/:item_id" render={props => <ChatComponent {...props} loggedInUser={this.state.loggedInUser} setTheUser={this.setTheUser} />} />
 
 
                     <Route exact path="/items/all" render={() => this.state.loggedInUser ? <ItemList loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />} />
 
-                    {/* <Route exact path="/main/all" render={() => <ItemList loggedInUser={this.state.loggedInUser} />} /> */}
 
                     <Route exact path="/items/:item_id" render={props => <ItemDetail {...props} />} />
 
-                    {/* <Route exact path="/user" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} /> */}
+                    <Route exact path="/user" render={props => <Profile {...props} setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser} />} />
 
 
                     <Route exact path="/signup" render={props => <SignupForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
@@ -77,7 +76,7 @@ class App extends Component {
                     <Route exact path="/login" render={props => <LoginForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
 
                 </Switch>
-                {/* <CardFooter /> */}
+
                 <Message {...this.state.toast} handleToast={this.handleToast} />
 
             </>

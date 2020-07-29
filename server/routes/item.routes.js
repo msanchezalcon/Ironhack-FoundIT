@@ -17,7 +17,7 @@ router.get('/users/:id', ensureLoggedIn(), (req, res, next) => {
 // Get all items on main page
 router.get('/all', ensureLoggedIn(), (req, res, next) => {
 
-    Item.find()
+    Item.find().populate('foundBy', 'username')
         .then(response => res.json(response))
         .catch(err => next(err))
 })

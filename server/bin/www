@@ -47,33 +47,39 @@ server.on('error', error => {
 
 
 
+// const io = require('socket.io')(server)
+
+// let userList = []
+
+// io.on("connection", socket => {
+//   console.log("socket connected");
+
+//   socket.on("newUser", user => {
+//     console.log(`${user} connected`);
+//     userList.push(user);
+//     socket.emit("list", userList);
+//     socket.broadcast.emit("list", userList);
+//   });
+
+//   socket.on("messageSent", message => {
+//     console.log(message);
+//     socket.emit("newMessage", message);
+//     socket.broadcast.emit("newMessage", message);
+//   })
+// })
 
 
 
-
-const io = require('socket.io').listen(server)
-
-let userList = []
+const socket = require("socket.io");
+const io = socket(server);
 
 io.on("connection", socket => {
-  console.log("socket connected");
-
-  socket.on("newUser", user => {
-    console.log(`${user} connected`);
-    userList.push(user);
-    socket.emit("list", userList);
-    socket.broadcast.emit("list", userList);
-  });
-
-  socket.on("messageSent", message => {
-    console.log(message);
-    socket.emit("newMessage", message);
-    socket.broadcast.emit("newMessage", message);
+  socket.emit("your id", socket.id);
+  socket.on("send message", body => {
+    console.log('-->', body)
+    io.emit("message", body)
   })
 })
-
-
-
 
 
 

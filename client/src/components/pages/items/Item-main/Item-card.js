@@ -8,7 +8,7 @@ import './Item-list.css'
 import lupa from './lupa.svg'
 
 
-const ItemCard = ({ _id, name, imageUrl }) => {
+const ItemCard = ({ _id, name, imageUrl, foundBy }) => {
 
     console.log('ID DE LA CARTA', _id)
 
@@ -21,6 +21,7 @@ const ItemCard = ({ _id, name, imageUrl }) => {
                     <Card.Title>{name}</Card.Title>
                     <div>
                         <Link to={`/items/${_id}`}><img className="imgCards" src={lupa} alt="see more" /></Link>
+                        <Link to={`/chat/${_id}`}><p>{foundBy.username}</p></Link>
                     </div>
                 </Card.Body>
             </Card>
