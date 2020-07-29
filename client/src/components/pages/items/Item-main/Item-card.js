@@ -17,9 +17,9 @@ const ItemCard = ({ _id, name, imageUrl }) => {
         < Col md={4} >
             <Card className="item-card">
                 <Card.Img variant="top" src={imageUrl} />
-                <Card.Body>
+                <Card.Body className="imgCardContainer">
                     <Card.Title>{name}</Card.Title>
-                    <div className="imgCardContainer">
+                    <div>
                         <Link to={`/items/${_id}`}><img className="imgCards" src={lupa} alt="see more" /></Link>
                     </div>
                 </Card.Body>

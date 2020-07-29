@@ -2,23 +2,32 @@
     position: relative;
     width: 100%;
     background-repeat: no-repeat;
+    text-align: center;
 }
 
 .registerBtns {
     color: lightseagreen;
-    border-color: BlueViolet;}
+    border-color: BlueViolet;
+    text-align: center;
+    width: 30%;
+    margin-bottom: 20%;
+    margin-left: 37%;
+}
+     
 
 .imgPag {
-    width: 100%;
+    width: 700px;
+    text-align: center;
 }
 
-.authIndex {
-    width: 50%;
-    margin-left: 25%;
-}
 
 .details {
     color: lightseagreen;
     border-color: BlueViolet;
     background-color: whitesmoke;
+}
+
+.bt {
+    width: 150px;
+    margin-left: 25%;
 }

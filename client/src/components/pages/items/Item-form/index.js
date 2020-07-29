@@ -15,7 +15,7 @@ class ItemForm extends Component {
             name: itemEdit ? itemEdit.name : "",
             description: itemEdit ? itemEdit.description : "",
             category: itemEdit ? itemEdit.category : "",
-            // location: '',
+            location: itemEdit ? itemEdit.location : "",
             imageUrl: itemEdit ? itemEdit.imageUrl : "",
             foundBy: itemEdit ? itemEdit.foundBy : ""
         }
@@ -74,20 +74,22 @@ class ItemForm extends Component {
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Name</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.name} name="name" type="text" />
-                        <Form.Text className="text-muted">Don't be too generic. The devil is in the details ;)</Form.Text>
+                        <Form.Text className="text-muted">Item name and brand</Form.Text>
                     </Form.Group>
 
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Description</Form.Label>
                         <Form.Control onChange={this.handleInputChange} value={this.state.description} name="description" type="text" />
-                        <Form.Text className="text-muted">Color, size, brand, condition... be specific!</Form.Text>
+                        <Form.Text className="text-muted">Color, size, condition... be specific!</Form.Text>
                     </Form.Group>
 
 
-                    {/* <Form.Group>
-                        <Form.Label>Location</Form.Label>
-                        <Form.Control onChange={this.handleInputChange} value={this.state.location} name="location" type="number" />
-                    </Form.Group> */}
+                    <Form.Group>
+                        <Form.Label style={{ color: 'SlateBlue' }}>Location</Form.Label>
+                        <Form.Control onChange={this.handleInputChange} value={this.state.location.coordinates} placeholder="lat" name="location" type="float" />
+                        <Form.Control onChange={this.handleInputChange} value={this.state.location.coordinate} placeholder="lng" name="location" type="float" />
+
+                    </Form.Group>
 
                     <Form.Group controlId="exampleForm.ControlSelect2">
                         <Form.Label style={{ color: 'SlateBlue' }}>Category</Form.Label>

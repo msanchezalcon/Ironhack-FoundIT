@@ -12,6 +12,19 @@
     width: 25%;
 }
 
-.profileCol{
+.imgCardContainerUser{
+    display: flex;
+    align-content: space-between;
+    text-align: center;
+    align-items: center;
+    margin: 20%;
+    padding: 10px;
+    margin-top: 0;
+    margin-left: 35%;
+}
+
+.item-card{
+    margin:0;
+    padding:0;
 
 }

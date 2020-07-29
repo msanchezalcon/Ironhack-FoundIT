@@ -8,6 +8,8 @@ import Col from 'react-bootstrap/Col'
 import { Link } from 'react-router-dom'
 import CardFooter from './../../../ui/Footer'
 import Spinner from './../../../ui/Spinner'
+import MapApp from './../../../ui/maps/map'
+
 
 import './item-detail.css'
 
@@ -47,7 +49,7 @@ class ItemDetails extends Component {
                                     <h4> {this.state.itemDetails.description}</h4>
                                     <br></br>
                                     <p><b>Category:</b> {this.state.itemDetails.category}</p>
-                                    {/* <p><b>Location:</b> {this.state.itemDetails.location}</p> */}
+                                    {/* <p><b>Location:</b> {this.state.itemDetails.location.coordinates}</p> */}
                                     <p><b>Found by:</b> {this.state.itemDetails.foundBy.username}</p>
                                     <hr></hr>
                                     <Link className="btn btn-light btn-block btn-sm details authDetail" to='/items/all'>Back to search</Link>
@@ -56,10 +58,18 @@ class ItemDetails extends Component {
                                     <img src={this.state.itemDetails.imageUrl} alt={this.state.itemDetails.name} />
                                 </Col>
                             </Row>
+
+
+
                     }
 
                 </Container>
-                <CardFooter />
+
+                {/* <Container className="mapMain">
+                        <MapApp items={this.state.itemDetails} markers={this.state.itemDetails} />
+                    </Container> */}
+
+
             </>
         )
     }

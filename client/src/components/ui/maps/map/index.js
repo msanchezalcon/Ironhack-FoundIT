@@ -1,21 +1,75 @@
-import React from 'react'
-import { GoogleMap, withScriptjs, Marker, withGoogleMap } from "react-google-maps"
+import React, { useEffect } from 'react'
+import { GoogleMap, withScriptjs, Marker, withGoogleMap, InfoWindow } from "react-google-maps"
 import mapStyles from './mapStyles'
 
 class Map extends React.Component {
 
     state = {
-        points: this.props.markers // all markers in a google-map-react?
+        points: this.props.markers, // all markers in a google-map-react?
+        items: this.props.items, //all info from all items
+        selectedItem: null,
+        setSelectedItem: null
     }
+    // useEffect = () => {
+    //     const listener = e => {
+    //         if (e.key === "Escape") {
+    //             this.setState({ selectedItem: null })
+    //         }
+    //     }
+
+    //     window.addEventListener("keydown", listener)
+
+    //     return () => window.removeEventListener("keydown", listener)
+    // }
+
+
     render() {
-        console.log("MAP", this.state.points)
+        console.log("map this state points", this.state.points)
+        console.log('map this state items', this.state.items)
         return (
             <>
                 <GoogleMap defaultZoom={12} defaultCenter={{ lat: 57.7089, lng: 11.9746 }} defaultOptions={{ styles: mapStyles }} >
-                    {this.state.points.map(point => <Marker position={{ lat: point.lat, lng: point.lng }} icon={{
-                        url: `/wedding.svg`,
-                        scaledSize: new window.google.maps.Size(30, 30)
-                    }} />)}
+                    {this.state.items.map(item =>
+                        <Marker id={item._id}
+                            onClick={() => {
+                                console.log('marker clickado!', item.name)
+                                // {
+                                //     < InfoWindow >
+                                //         <div>
+                                //             <p>{item.name}</p>
+                                //             <p>{item.description}</p>
+                                //         </div>
+                                //     </InfoWindow>
+                                // }
+                                //add info view here
+
+
+                            }}
+                            name={item.name}
+                            description={item.description}
+                            position={{ lat: item.location.coordinates[0], lng: item.location.coordinates[1] }}
+                            icon={{
+                                url: `/wedding.svg`,
+                                scaledSize: new window.google.maps.Size(30, 30)
+                            }} />)}
+
+                    {/* {selectedItem && (
+                        <InfoWindow
+                            onCloseClick={() => {
+                                setSelectedItem(null);
+                            }}
+                            position={{
+                                lat: selectedItem.location.coordinates[1],
+                                lng: selectedItem.location.coordinates[0]
+                            }}
+                        >
+                            <div>
+                                <h2>{selectedItem.name}</h2>
+                                <p>{selectedItem.description}</p>
+                            </div>
+                        </InfoWindow>
+                    )} */}
+
                 </GoogleMap>
             </>
         )
@@ -31,22 +85,25 @@ export default function MapApp(props) {
         mapElement,
         defaultCenter,
         defaultZoom,
-        markers
+        markers,
+        items //info about items from parent
     } = props
 
 
-    console.log(props)
 
+    // console.log('items info map', items)
     const initialPoints = markers ? markers.map(item => item.location.coordinates) : []
     const waypoints = initialPoints.map(p => ({ lat: parseFloat(p[0]), lng: parseFloat(p[1]) }))
     let lat = 40.4167754 //props.centerLoc.lat
     let lng = -3.7037901999999576//props.centerLoc.lng
     return (
         <>
+
             <div style={{ width: "100vw", height: "40vh" }}>
                 <WrappedMap
                     googleMapURL={
-                        `https://maps.googleapis.com/maps/api/js?key=${apiKey}&v=3.exp&libraries=geometry,drawing,places`
+                        `https://maps.googleapis.com/maps/api/js?key=
+                        &v=3.exp&libraries=geometry,drawing,places`
                     }
                     loadingElement={loadingElement || <div style={{ height: "100%" }} />}
                     containerElement={containerElement || <div style={{ height: "100%" }} />}
@@ -54,6 +111,7 @@ export default function MapApp(props) {
                     defaultCenter={defaultCenter || { lat: lat, lng: lng }}
                     defaultZoom={defaultZoom || 20}
                     markers={waypoints}
+                    items={items}
                 />
             </div>
         </>

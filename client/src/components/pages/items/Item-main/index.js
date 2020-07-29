@@ -62,8 +62,7 @@ class ItemList extends Component {
 
 
     render() {
-        console.log("ENVIAR A MAP", this.state.items)
-        console.log('this state items', this.state.items)
+        // console.log('main page this state items', this.state.items)
 
         return (
             <>
@@ -73,7 +72,7 @@ class ItemList extends Component {
 
 
                 <Container className="mapMain">
-                    <MapApp markers={this.state.items} />
+                    <MapApp items={this.state.items} markers={this.state.items} />
                 </Container>
 
 

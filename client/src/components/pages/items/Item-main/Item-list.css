@@ -28,15 +28,13 @@
 
 
 .imgCardContainer{
-    display: flex;
-    margin-left: 20%;
-    align-content: space-between;
+    font-size: 10px;
 }
 
 .mapMain{
     margin-top: 50px;
     display: block;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: 60%;
     text-align: center;
 }
