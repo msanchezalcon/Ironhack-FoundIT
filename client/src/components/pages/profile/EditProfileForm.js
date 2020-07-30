@@ -96,15 +96,15 @@ class EditProfileForm extends Component {
                             <Form.Control name="password" type="password" placeholder="password" value={this.state.password} onChange={this.handleInputChange} />
                         </Form.Group>
 
-                        {/* <Form.Group>
-                            <Form.Label style={{ color: 'SlateBlue' }}>Avatar</Form.Label>
-                            <Form.Control onChange={this.handleInputChange} value={this.state.avatar} name="avatar" type="text" />
-                        </Form.Group> */}
-
                         <Form.Group>
                             <Form.Label style={{ color: 'SlateBlue' }}>Avatar</Form.Label>
-                            <Form.Control name="avatar" type="file" onChange={this.handleFileUpload} />
+                            <Form.Control onChange={this.handleInputChange} value={this.state.avatar} name="avatar" type="text" />
                         </Form.Group>
+
+                        {/* <Form.Group>
+                            <Form.Label style={{ color: 'SlateBlue' }}>Avatar</Form.Label>
+                            <Form.Control name="avatar" type="file" onChange={this.handleFileUpload} />
+                        </Form.Group> */}
 
                         <Button type="submit" className="btn btn-light btn-block btn-sm details auth">Submit</Button>
                     </Form>

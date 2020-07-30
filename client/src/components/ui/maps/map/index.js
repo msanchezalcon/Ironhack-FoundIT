@@ -33,15 +33,7 @@ class Map extends React.Component {
                         <Marker id={item._id}
                             onClick={() => {
                                 console.log('marker clickado!', item.name)
-                                // {
-                                //     < InfoWindow >
-                                //         <div>
-                                //             <p>{item.name}</p>
-                                //             <p>{item.description}</p>
-                                //         </div>
-                                //     </InfoWindow>
-                                // }
-                                //add info view here
+
 
 
                             }}

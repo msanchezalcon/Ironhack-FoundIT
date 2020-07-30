@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import './Item-list.css'
 import lupa from './lupa.svg'
+import chatIcon from './chat.svg'
 
 
 const ItemCard = ({ _id, name, imageUrl, foundBy }) => {
@@ -20,7 +21,7 @@ const ItemCard = ({ _id, name, imageUrl, foundBy }) => {
                 <Card.Body className="imgCardContainer">
                     <Card.Title>{name}</Card.Title>
                     <div>
-                        <Link to={`/chat/${_id}`}><p>Contact {foundBy.username}</p></Link>
+                        <Link to={`/chat/${_id}`}><p>Found by <b>{foundBy.username}</b></p><img className="imgCards" src={chatIcon} alt="chat" /></Link>
                         <Link to={`/items/${_id}`}><img className="imgCards" src={lupa} alt="see more" /></Link>
 
                     </div>

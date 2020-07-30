@@ -9,8 +9,7 @@ import { Link } from 'react-router-dom'
 import CardFooter from './../../../ui/Footer'
 import Spinner from './../../../ui/Spinner'
 import MapApp from './../../../ui/maps/map'
-
-
+import chatIcon from './chat.svg'
 import './item-detail.css'
 
 class ItemDetails extends Component {
@@ -33,13 +32,14 @@ class ItemDetails extends Component {
     }
 
     render() {
-        console.log('detail props', this.state.itemDetails)
+        console.log('DETAIL VIEW items', this.state.itemDetails)
         return (
             <>
 
                 <Container as="main">
 
                     {
+
                         !this.state.itemDetails ? <Spinner /> :
 
                             <Row>
@@ -51,7 +51,7 @@ class ItemDetails extends Component {
                                     <p><b>Category: </b> {this.state.itemDetails.category}</p>
 
                                     {/* FIX */}
-                                    <Link to={`/chat/${this.state.itemDetails._id}`}><p><b>Found by: </b> {this.state.itemDetails.foundBy.username}</p></Link>
+                                    <Link to={`/chat/${this.state.itemDetails._id}`}><p><b>Found by: </b> {this.state.itemDetails.foundBy.username} <img className="imgCards" src={chatIcon} alt="chat" /></p></Link>
                                     <hr></hr>
                                     <Link className="btn btn-light btn-block btn-sm details authDetail" to='/items/all'>Back to search</Link>
                                 </Col>
@@ -60,15 +60,17 @@ class ItemDetails extends Component {
                                 </Col>
                             </Row>
 
-
-
                     }
 
                 </Container>
 
-                {/* <Container className="mapMain">
-                        <MapApp items={this.state.itemDetails} markers={this.state.itemDetails} />
-                    </Container> */}
+                {/* {
+                    !this.state.itemDetails ? <Spinner /> :
+
+                        <Container className="mapMain">
+                            <MapApp items={this.state.itemDetails} markers={this.state.itemDetails} />
+                        </Container>
+                } */}
 
 
             </>

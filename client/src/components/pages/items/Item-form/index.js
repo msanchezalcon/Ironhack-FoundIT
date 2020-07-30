@@ -15,8 +15,8 @@ class ItemForm extends Component {
             name: itemEdit ? itemEdit.name : "",
             description: itemEdit ? itemEdit.description : "",
             category: itemEdit ? itemEdit.category : "",
-            location: itemEdit ? itemEdit.location : [],
-            imageUrl: itemEdit ? itemEdit.imageUrl : "",
+            location: itemEdit ? itemEdit.location : "",
+            imageUrl: itemEdit ? itemEdit.imageUrl : "https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg",
             foundBy: itemEdit ? itemEdit.foundBy : ""
         }
         this.appService = new AppService()
@@ -36,17 +36,17 @@ class ItemForm extends Component {
     }
 
     // CLOUDINARYCONFIG  
-    handleFileUpload = e => {
-        const uploadData = new FormData()
-        uploadData.append("imageUrl", e.target.files[0])
+    // handleFileUpload = e => {
+    //     const uploadData = new FormData()
+    //     uploadData.append("imageUrl", e.target.files[0])
 
-        this.filesService.handleUpload(uploadData)
-            .then(response => {
-                console.log('File upload successful! Cloudinary URL for item: ', response.data.secure_url)
-                this.setState({ imageUrl: response.data.secure_url })
-            })
-            .catch(err => console.log(err))
-    }
+    //     this.filesService.handleUpload(uploadData)
+    //         .then(response => {
+    //             console.log('File upload successful! Cloudinary URL for item: ', response.data.secure_url)
+    //             this.setState({ imageUrl: response.data.secure_url })
+    //         })
+    //         .catch(err => console.log(err))
+    // }
 
     handleFormSubmit = e => {
         e.preventDefault()
@@ -102,26 +102,22 @@ class ItemForm extends Component {
                         </Form.Control>
                     </Form.Group>
 
-                    {/* <Form.Group>
-                        <Form.Label style={{ color: 'SlateBlue' }}>Image (URL)</Form.Label>
-                        <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
-                    </Form.Group> */}
-
-                    {/* // CLOUDINARYCONFIG   */}
                     <Form.Group>
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
+                        <Form.Label style={{ color: 'SlateBlue' }}>Image</Form.Label>
+                        <Form.Control onChange={this.handleInputChange} value={this.state.imageUrl} name="imageUrl" type="text" />
                     </Form.Group>
 
+                    {/* // CLOUDINARYCONFIG   */}
                     {/* <Form.Group>
-                        <Form.File onChange={this.handleInputChange} id="exampleFormControlFile1" label="Image" name="imageUrl" type="text" />
+                        <Form.Label>Image</Form.Label>
+                        <Form.Control name="imageUrl" type="file" onChange={this.handleFileUpload} />
                     </Form.Group> */}
 
-
                     {/* <Form.Group>
-                        <Form.Label style={{ color: 'SlateBlue' }}>Found by</Form.Label>
-                        <Form.Control onChange={this.handleInputChange} value={this.state.foundBy} name="foundBy" type="text" />
+                        <Form.Label style={{ color: 'SlateBlue' }}>Image (URL)</Form.Label>
+                        <Form.File onChange={this.handleInputChange} value={this.state.imageUrl} id="exampleFormControlFile1" label="imageUrl" name="imageUrl" type="text" />
                     </Form.Group> */}
+
 
 
                     <Button className="btn btn-light btn-block btn-sm details auth" type="submit">Submit</Button>

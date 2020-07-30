@@ -16,9 +16,8 @@ const itemSchema = new Schema({
         default: 'other'
     },
     location: {
-        type: { type: String },
-        coordinates: [Number]
-
+        type: { type: String, default: 'Point' },
+        coordinates: { type: [Number], default: [57.6965, 11.9806] }
     },
     imageUrl: {
         type: String,

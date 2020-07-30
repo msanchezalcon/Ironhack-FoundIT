@@ -3,6 +3,8 @@ import styled from "styled-components"
 import io from "socket.io-client"
 import { Link } from 'react-router-dom'
 import './Chat.css'
+import exit from './exit.svg'
+
 
 
 
@@ -171,7 +173,7 @@ const ChatComponent = (props) => {
         <TextArea value={message} onChange={handleChange} placeholder="Type here..." />
         <Button>Send</Button>
       </Form>
-      <Link className="btn btn-light btn-block btn-sm details chatBtn" to='/items/all'>Leave chat</Link>
+      <Link to='/items/all'><img className="exitIcon" src={exit} alt="exit" /></Link>
 
     </Page>
   )

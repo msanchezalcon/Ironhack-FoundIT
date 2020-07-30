@@ -144,9 +144,9 @@ router.post("/users/:user_id", ensureLoggedIn(), (req, res, next) => {
 
     const tempUsername = username || req.user.username
     const tempName = name || req.user.name
-    const tempAvatar = req.file ? req.file.url : req.user.avatar
+    // const tempAvatar = req.file ? req.file.url : req.user.avatar
     const tempMessages = messages || req.user.messages
-    // const tempAvatar = avatar || req.user.avatar
+    const tempAvatar = avatar || req.user.avatar
 
 
 
