@@ -133,21 +133,24 @@ router.get("/users/:user_id", ensureLoggedIn(), (req, res, next) => {
         .catch(err => res.status(404).json({ message: 'No user info in DB' }))
 })
 
-// only editing username, name and avatar for now
+
 router.post("/users/:user_id", ensureLoggedIn(), (req, res, next) => {
     const username = req.body.username
     const name = req.body.name
     const avatar = req.body.avatar
+    const messages = req.body.messages
+
 
 
     const tempUsername = username || req.user.username
     const tempName = name || req.user.name
     const tempAvatar = req.file ? req.file.url : req.user.avatar
+    const tempMessages = messages || req.user.messages
     // const tempAvatar = avatar || req.user.avatar
 
 
 
-    User.findByIdAndUpdate(req.params.user_id, { username: tempUsername, name: tempName, avatar: tempAvatar }, { new: true })
+    User.findByIdAndUpdate(req.params.user_id, { username: tempUsername, name: tempName, avatar: tempAvatar, messages: tempMessages }, { new: true })
         .then(data => res.status(200).json(data))
         .catch(err => res.status(500).json({ message: 'Could not update user' }))
 })

@@ -16,6 +16,7 @@ const userSchema = new Schema({ //añadir nombre e email perfil
         type: String,
         default: "https://cdn4.iconfinder.com/data/icons/political-elections/50/48-512.png"
     },
+    messages: [String],
     role: {
         type: String,
         enum: ['USER', 'ADMIN'],

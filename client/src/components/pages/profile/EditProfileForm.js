@@ -17,7 +17,8 @@ class EditProfileForm extends Component {
             name: this.props.name,
             username: this.props.username,
             avatar: this.props.avatar,
-            password: this.props.password
+            password: this.props.password,
+            message: this.props.messages
         }
         this.userService = new UserService()
         this.filesService = new FilesService()
@@ -55,6 +56,20 @@ class EditProfileForm extends Component {
             })
             .catch(err => console.log(err))
     }
+
+    receiveMessages = (id) => {
+        const currentMessages = [...this.props.loggedInUser.messages]
+        currentMessages.push(id)
+        const updatedMessages = [...currentMessages]
+        const updateUser = { ...this.props.loggedInUser, messages: updatedMessages }
+        this.userService.editUser(this.props.loggedInUser._id, updateUser)
+            .then((response) => {
+                this.props.setTheUser(response.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+
 
     render() {
         console.log("set the user in profile form", this.props.setTheUser)

@@ -1,8 +1,6 @@
 import React from 'react'
+import './Footer.css'
 
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
 
 
 const CardFooter = () => {
@@ -20,4 +18,6 @@ const CardFooter = () => {
 }
 
 export default CardFooter
+
+
 

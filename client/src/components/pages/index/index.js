@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
+import RegularFooter from './../../ui/Footer/RegularFooter'
+
+
 
 import './index.css'
 
@@ -18,6 +21,7 @@ const Index = () => {
                 <Button className="btn btn-light btn-block btn-sm details authIndex bt"><Link to="/signup" activeStyle={{ color: 'lightseagreen' }}>Sign up</Link></Button>
                 <Button className="btn btn-light btn-block btn-sm details authIndex bt"><Link to="/login" activeStyle={{ color: 'lightseagreen' }}>Log in</Link></Button>
             </div>
+
 
         </>
     )

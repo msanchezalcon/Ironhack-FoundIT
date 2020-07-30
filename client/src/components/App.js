@@ -15,7 +15,8 @@ import IndexPage from './pages/index'
 import ItemList from './../components/pages/items/Item-main'
 import ItemDetail from './../components/pages/items/Item-detail'
 import Profile from './pages/profile'
-import ChatComponent from './ui/Chat'
+import Chat from './ui/Chat'
+import RegularFooter from './../components/ui/Footer/RegularFooter'
 
 class App extends Component {
 
@@ -60,7 +61,7 @@ class App extends Component {
 
                     <Route exact path="/" render={() => <IndexPage />} />
 
-                    <Route exact path="/chat/:item_id" render={props => <ChatComponent {...props} loggedInUser={this.state.loggedInUser} setTheUser={this.setTheUser} />} />
+                    <Route exact path="/chat/:item_id" render={props => <Chat {...props} loggedInUser={this.state.loggedInUser} setTheUser={this.setTheUser} />} />
 
 
                     <Route exact path="/items/all" render={() => this.state.loggedInUser ? <ItemList loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />} />
@@ -76,6 +77,8 @@ class App extends Component {
                     <Route exact path="/login" render={props => <LoginForm {...props} setTheUser={this.setTheUser} handleToast={this.handleToast} />} />
 
                 </Switch>
+                {/* <RegularFooter /> */}
+
 
                 <Message {...this.state.toast} handleToast={this.handleToast} />
 

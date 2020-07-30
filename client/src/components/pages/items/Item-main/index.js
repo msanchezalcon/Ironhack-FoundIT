@@ -26,7 +26,8 @@ class ItemList extends Component {
             items: [],
             showModal: false,
             selectedId: null,
-            filteredItems: []
+            filteredItems: [],
+            filteredCategory: []
 
         }
         this.appService = new AppService()
@@ -59,6 +60,11 @@ class ItemList extends Component {
         this.setState({ filteredItems: copyItem, nameSearched })
     }
 
+    filterCategory = categorySearched => {
+        console.log(categorySearched)
+        let copyItem = this.state.items.filter(items => items.category.toLowerCase().includes(categorySearched))
+        this.setState({ filteredCategory: copyItem, categorySearched })
+    }
 
 
     render() {
@@ -67,7 +73,7 @@ class ItemList extends Component {
         return (
             <>
                 <Container className="searchMap">
-                    <SearchBar filterItem={this.filterItem} />
+                    <SearchBar filterItem={this.filterItem} filterCategory={this.filterCategory} />
                 </Container>
 
 

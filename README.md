@@ -11,22 +11,24 @@ Auth & Profile routes:
 | 2 |get      |/api/signup                | Shows signup form                                |                |
 | 3 |get      |/api/login                 | Shows login form                                 |                |
 | 4 |post     |/api/login                 | Logs user in                                     |                |
-| 5 |get      |/api/users/:userId         | Shows user info                                  |                |
+| 5 |get      |/api/users/:userId         | User profile                                     |                |
 | 6 |post     |/api/users/:userId         | Edits user info                                  |                |
-| 7 |get      |/api/users/:userId/items   | Shows user items                                 |                |
+| 7 |get      |/api/users/:userId/items   | Shows user found items          |                |
 
 
 App routes:
 
-|Id | Method  |  Path                     | Description                                      | Querys         |
-|---|:-------:|:-------------------------:|:------------------------------------------------:|---------------:|
-| 1 |get      |/api/home                  | Index page                                       |                |
-| 2 |get      |/api/main/all              | Shows all items                                  |                |
-| 3 |get      |/api/main/:item_id         | Shows item details                               |                |
-| 4 |get      |/api/main/:item_id/edit    | Shows edit form for item                         |                |
-| 5 |post     |/api/main/:item_id/edit'   | Edits item                                       |                |
-| 6 |post     |/api/main/new              | Adds new item                                    |                |
-| 7 |get      |/api/main/:item_id/delete  | Deletes item                                     |                |
+|Id | Method  |  Path                      | Description                                      | Querys         |
+|---|:-------:|:--------------------------:|:------------------------------------------------:|---------------:|
+| 1 |get      |/api/                   | Index page                                       |                |
+| 2 |get      |/api/items/all              | Shows all items                                  |                |
+| 3 |get      |/api/items/:item_id         | Shows item details                               |                |
+| 4 |get      |/api/items/:item_id/edit    | Shows edit form for item                         |                |
+| 5 |post     |/api/items/:item_id/edit'   | Edits item                                       |                |
+| 6 |post     |/api/items/new              | Adds new item                                    |                |
+| 7 |get      |/api/items/:item_id/delete  | Deletes item                                     |                |
+| 7 |get      |/api/chat/:item_id          | Opens chat for retrieving lost item              |                |
+
 
 
 

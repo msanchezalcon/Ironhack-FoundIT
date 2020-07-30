@@ -14,17 +14,35 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     margin-top: 10px;
 }
+
 
 .footInfo {
     text-align: center;
 }
 
 
-
 .cardText {
     margin: 0;
     text-align: center;
 }
+
+/* footer { 
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color:#A37DB1;
+    bottom: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.footer-text {
+    margin-top: auto;
+    font-weight: 100;
+    text-align: center;
+    color: black;
+} */
