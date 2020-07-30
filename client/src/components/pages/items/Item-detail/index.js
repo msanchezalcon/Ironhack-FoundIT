@@ -48,9 +48,10 @@ class ItemDetails extends Component {
                                     <hr></hr>
                                     <h4> {this.state.itemDetails.description}</h4>
                                     <br></br>
-                                    <p><b>Category:</b> {this.state.itemDetails.category}</p>
-                                    {/* <p><b>Location:</b> {this.state.itemDetails.location.coordinates}</p> */}
-                                    <p><b>Found by:</b> {this.state.itemDetails.foundBy.username}</p>
+                                    <p><b>Category: </b> {this.state.itemDetails.category}</p>
+
+                                    {/* FIX */}
+                                    <Link to={`/chat/${this.state.itemDetails._id}`}><p><b>Found by: </b> {this.state.itemDetails.foundBy.username}</p></Link>
                                     <hr></hr>
                                     <Link className="btn btn-light btn-block btn-sm details authDetail" to='/items/all'>Back to search</Link>
                                 </Col>

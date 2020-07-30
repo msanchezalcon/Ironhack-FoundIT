@@ -42,6 +42,9 @@ router.post('/:item_id/edit', ensureLoggedIn(), (req, res, next) => {
 
     const { name, description, category, location, imageUrl, foundBy } = req.body
 
+    // const location = { type: 'Point', coordinates: [req.body.latitude, req.body.longitude] }
+
+
     const tempName = name || req.user.name
     const tempCat = category || req.user.category
     const tempLoc = location || req.user.location

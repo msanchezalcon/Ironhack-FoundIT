@@ -39,7 +39,7 @@ class ItemList extends Component {
         this.appService
             .getAllItems()
             .then(response => {
-                console.log('all items', response.data)
+                console.log('all items from DB', response.data)
                 this.setState({ items: response.data })
             })
             .catch(err => console.log(err))
@@ -62,7 +62,7 @@ class ItemList extends Component {
 
 
     render() {
-        // console.log('main page this state items', this.state.items)
+        console.log('main page this state items', this.state.items)
 
         return (
             <>

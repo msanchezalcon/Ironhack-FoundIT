@@ -15,7 +15,7 @@ class ItemForm extends Component {
             name: itemEdit ? itemEdit.name : "",
             description: itemEdit ? itemEdit.description : "",
             category: itemEdit ? itemEdit.category : "",
-            location: itemEdit ? itemEdit.location : "",
+            location: itemEdit ? itemEdit.location : [],
             imageUrl: itemEdit ? itemEdit.imageUrl : "",
             foundBy: itemEdit ? itemEdit.foundBy : ""
         }
@@ -86,8 +86,8 @@ class ItemForm extends Component {
 
                     <Form.Group>
                         <Form.Label style={{ color: 'SlateBlue' }}>Location</Form.Label>
-                        <Form.Control onChange={this.handleInputChange} value={this.state.location.coordinates} placeholder="lat" name="location" type="float" />
-                        <Form.Control onChange={this.handleInputChange} value={this.state.location.coordinate} placeholder="lng" name="location" type="float" />
+                        <Form.Control onChange={this.handleInputChange} value={this.state.location.coordinates} placeholder="lat, lng" name="location" type="float" />
+                        {/* <Form.Control onChange={this.handleInputChange} value={this.state.location.coordinates} placeholder="lng" name="location" type="float" /> */}
 
                     </Form.Group>
 

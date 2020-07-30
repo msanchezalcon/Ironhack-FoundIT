@@ -20,8 +20,9 @@ const ItemCard = ({ _id, name, imageUrl, foundBy }) => {
                 <Card.Body className="imgCardContainer">
                     <Card.Title>{name}</Card.Title>
                     <div>
+                        <Link to={`/chat/${_id}`}><p>Contact {foundBy.username}</p></Link>
                         <Link to={`/items/${_id}`}><img className="imgCards" src={lupa} alt="see more" /></Link>
-                        <Link to={`/chat/${_id}`}><p>{foundBy.username}</p></Link>
+
                     </div>
                 </Card.Body>
             </Card>

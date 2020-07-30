@@ -24,8 +24,8 @@ class Map extends React.Component {
 
 
     render() {
-        console.log("map this state points", this.state.points)
-        console.log('map this state items', this.state.items)
+        // console.log("map this state points", this.state.points)
+        // console.log('map this state items', this.state.items)
         return (
             <>
                 <GoogleMap defaultZoom={12} defaultCenter={{ lat: 57.7089, lng: 11.9746 }} defaultOptions={{ styles: mapStyles }} >
@@ -102,7 +102,7 @@ export default function MapApp(props) {
             <div style={{ width: "100vw", height: "40vh" }}>
                 <WrappedMap
                     googleMapURL={
-                        `https://maps.googleapis.com/maps/api/js?key=&v=3.exp&libraries=geometry,drawing,places`
+                        `https://maps.googleapis.com/maps/api/js?key=AIzaSyA8O--GDLv_W7ar5KhqUzBsDayxtffbZso&v=3.exp&libraries=geometry,drawing,places`
                     }
                     loadingElement={loadingElement || <div style={{ height: "100%" }} />}
                     containerElement={containerElement || <div style={{ height: "100%" }} />}
