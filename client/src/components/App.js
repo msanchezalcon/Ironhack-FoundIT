@@ -17,6 +17,7 @@ import ItemDetail from './../components/pages/items/Item-detail'
 import Profile from './pages/profile'
 import Chat from './ui/Chat'
 import RegularFooter from './../components/ui/Footer/RegularFooter'
+import ChatComponent from './ui/Chat/ChatComponent'
 
 class App extends Component {
 
@@ -24,9 +25,10 @@ class App extends Component {
         super()
         this.state = {
             loggedInUser: null,
+            chat:true,
             toast: {
                 visible: false,
-                text: ''
+                text: '',
             }
         }
         this.AuthService = new AuthService()
@@ -62,6 +64,7 @@ class App extends Component {
                     <Route exact path="/" render={() => <IndexPage />} />
 
                     <Route exact path="/chat/:item_id" render={props => <Chat {...props} loggedInUser={this.state.loggedInUser} setTheUser={this.setTheUser} />} />
+                    <Route exact path="/message" render={props => <ChatComponent {...props} loggedInUser={this.state.loggedInUser} setTheUser={this.setTheUser} chat={this.state.chat}/>} />
 
 
                     <Route exact path="/items/all" render={() => this.state.loggedInUser ? <ItemList loggedInUser={this.state.loggedInUser} /> : <Redirect to='/signup' />} />

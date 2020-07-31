@@ -1,5 +1,8 @@
 const express = require('express')
 const router = express.Router()
+const uploader = require('../configs/cloudinary.config')
+
+
 
 const Item = require('./../models/Item.model')
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login")
@@ -38,30 +41,27 @@ router.get('/:item_id/edit', ensureLoggedIn(), (req, res, next) => {
         .catch(err => next(err))
 })
 
-router.post('/:item_id/edit', ensureLoggedIn(), (req, res, next) => {
-
-    const { name, description, category, location, imageUrl, foundBy } = req.body
-
-
-
-    const tempName = name || req.user.name
-    const tempCat = category || req.user.category
-    const tempLoc = location || req.user.location
-    const tempDesc = description || req.user.description
-    // const tempImg = req.file ? req.file.url : req.user.imageUrl
-    const tempImg = imageUrl || req.user.imageUrl
-
-    const tempFound = foundBy || req.user.foundBy
-
-    Item.findByIdAndUpdate(req.params.item_id, { name: tempName, description: tempDesc, category: tempCat, location: tempLoc, imageUrl: tempImg, foundBy: tempFound })
+router.post('/:item_id/edit', ensureLoggedIn(), uploader.single("imageUrl"), (req, res, next) => {
+    //const { name, description, category, location, imageUrl, foundBy } = req.body
+    const { name, description, category, location } = req.body
+    const tempName = name || req.body.name
+    const tempCat = category || req.body.category
+    const tempLoc = location || req.body.location
+    const tempDesc = description || req.body.description
+    const tempImg = req.file ? req.file.url : req.body.imageUrl
+    //const tempImg = imageUrl || req.user.imageUrl
+    //const tempFound = foundBy || req.body.foundBy
+    //, foundBy: tempFound, location: tempLoc
+    Item.findByIdAndUpdate(req.params.item_id, { name: tempName, description: tempDesc, category: tempCat, imageUrl: tempImg })
         .then(response => res.json(response))
         .catch(err => next(err))
 })
 
 // Create new item 
-router.post('/new', ensureLoggedIn(), (req, res, next) => {
-
-    Item.create(req.body)
+router.post('/new', ensureLoggedIn(), uploader.single("imageUrl"), (req, res, next) => {
+    const { name, description, category, location, foundBy } = req.body
+    const tempimageUrl = req.file ? req.file.url : "";
+    Item.create({ name, description, category, location, foundBy, imageUrl: tempimageUrl })
         .then(response => res.json(response))
         .catch(err => next(err))
 })

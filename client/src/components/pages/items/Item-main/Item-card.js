@@ -17,8 +17,7 @@ const ItemCard = ({ _id, name, imageUrl, foundBy }) => {
 
         < Col md={4} >
             <Card className="item-card">
-                <Card.Img variant="top" src={imageUrl} />
-                <Card.Body className="imgCardContainer">
+                <Card.Img variant="top" src={imageUrl || "https://www.fulltimefba.com/wp-content/uploads/2014/03/Lost-Box.jpg"} />                <Card.Body className="imgCardContainer">
                     <Card.Title>{name}</Card.Title>
                     <div>
                         <Link to={`/chat/${_id}`}><p>Found by <b>{foundBy.username}</b></p><img className="imgCards" src={chatIcon} alt="chat" /></Link>

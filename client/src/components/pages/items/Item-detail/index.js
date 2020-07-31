@@ -16,7 +16,8 @@ class ItemDetails extends Component {
     constructor() {
         super()
         this.state = {
-            itemDetails: undefined
+            itemDetails: undefined,
+            itemView: []
         }
         this.appService = new AppService()
     }
@@ -27,12 +28,14 @@ class ItemDetails extends Component {
 
         this.appService
             .getOneItem(id)
-            .then(response => this.setState({ itemDetails: response.data }))
+            .then(response => this.setState({ itemDetails: response.data, itemView: [response.data] }))
             .catch(err => console.log(err))
     }
 
     render() {
-        console.log('DETAIL VIEW items', this.state.itemDetails)
+        console.log('DETAIL VIEW items', this.state.itemView)
+        console.log('DETAIL ITEMS items', this.state.itemDetails)
+
         return (
             <>
 
@@ -64,13 +67,12 @@ class ItemDetails extends Component {
 
                 </Container>
 
-                {/* {
-                    !this.state.itemDetails ? <Spinner /> :
+                <Container className="mapMain">
+                    <MapApp items={this.state.itemView} markers={this.state.itemView} />
+                </Container>
 
-                        <Container className="mapMain">
-                            <MapApp items={this.state.itemDetails} markers={this.state.itemDetails} />
-                        </Container>
-                } */}
+
+
 
 
             </>

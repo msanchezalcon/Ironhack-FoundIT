@@ -103,12 +103,13 @@ const ChatComponent = (props) => {
   const [message, setMessage] = useState("")
 
 
-  // console.log('props id chat hijo', props.match.params.item_id)
-  const id_chat = props.match.params.item_id
-  const info_chatItem = props.items.filter(item => id_chat.includes(item._id))
-  const personWhoFound = info_chatItem[0].foundBy.username
-  // console.log('info chat item owner', info_chatItem[0].foundBy.username)
-  console.log('id chat', info_chatItem)
+  console.log('props id chat hijo', props.chat)
+
+  const id_chat = props.chat ? "" : props.match.params.item_id
+  const info_chatItem = props.chat ? "" : props.items.filter(item => id_chat.includes(item._id))
+  //const personWhoFound = info_chatItem[0].foundBy.username
+  //console.log('info chat item owner', info_chatItem[0].foundBy.username)
+  //console.log('id chat', info_chatItem)
 
   const socketRef = useRef()
 
@@ -146,7 +147,7 @@ const ChatComponent = (props) => {
   return (
 
     <Page>
-      <h3>Chat room for <b><i>{info_chatItem[0].name}</i></b> </h3>
+      <h3>Chat room for <b><i>{!props.chat ? info_chatItem[0].name : "your listed item"}</i></b> </h3>
       <Container>
         {messages.map((message, index) => {
           if (message.id === yourID) {
@@ -162,7 +163,7 @@ const ChatComponent = (props) => {
           return (
             <PartnerRow key={index}>
               <PartnerMessage>
-                <p><small>{info_chatItem[0].foundBy.username}: </small></p>
+                <p><small>{!props.chat ? info_chatItem[0].foundBy.username : "claimer: "} </small></p>
                 {message.body}
               </PartnerMessage>
             </PartnerRow>

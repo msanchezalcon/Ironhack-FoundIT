@@ -36,3 +36,13 @@ h2 {
     margin-right: auto;
 } 
 
+.inboxIcon {
+    text-align: center;
+    width: 30px;
+    display: block;
+    align-items: center;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
