@@ -18,6 +18,9 @@ require('./configs/middleware.config')(app)
 require('./configs/views.configs')(app)
 require('./configs/locals.config')(app)
 
+app.use('/', (req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
+})
 // Routes index
 require('./routes')(app)
 
