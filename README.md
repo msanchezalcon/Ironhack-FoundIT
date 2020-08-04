@@ -1,5 +1,5 @@
 # Found _IT
-
+Lost item management app through the community.
 
 ## ENDPOINTS SUMMARY
 
