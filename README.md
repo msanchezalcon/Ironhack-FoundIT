@@ -1,5 +1,5 @@
-# Found _IT
-Lost item management app through the community.
+# Found _IT: Lost item management app through the community
+Found IT originated from the idea that in Scandinavian countries, where I am currently based, there is a great deal of individual responsibility in every day actions, such as returning lost items. Therefore, Found IT aims to be an extra help for those who lost or found an item. This app serves as a registry from where an user can both find a lost item or register a found one, and then get in touch with the owner. This app was developed for the Ironhack Web Dev Bootcamp and therefore has room for improvement in scalability in the future.
 
 ## See demo: 
 https://drive.google.com/file/d/1pE6PusNrb1O3Ca0l9lkVFIHys7r80tcy/view?usp=sharing
