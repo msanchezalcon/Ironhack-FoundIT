@@ -7,5 +7,5 @@
 
 [build]
   base    = "/client/"
-  publish = "/client/dist"
+  publish = "/client/build"
   command = "ng build --aot"
