@@ -6,5 +6,6 @@
 #    that is where we will look for package.json/.nvmrc/etc not repo root!
 
 [build]
-  publish = "/client/build"
+  base    = "/client/"
+  publish = "/client/dist"
   command = "ng build --aot"
