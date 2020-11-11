@@ -2,7 +2,7 @@
 Found IT aims to be an extra help for those who lost or found an item. This app serves as a registry from where an user can both find a lost item or register a found one, and then get in touch with the owner. This app was developed for the Ironhack Web Dev Bootcamp and therefore has room for improvement in scalability in the future.
 
 ## See demo: 
-https://drive.google.com/file/d/1pE6PusNrb1O3Ca0l9lkVFIHys7r80tcy/view?usp=sharing
+https://drive.google.com/file/d/1LbZo4emvghNuzrGE25d7u9BpXHdPbPgJ/view?usp=sharing
 
 ## ENDPOINTS SUMMARY
 
